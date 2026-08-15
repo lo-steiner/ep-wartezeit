@@ -1,294 +1,777 @@
-```html
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europa-Park Wartezeiten Live</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- React & ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    
-    <!-- Babel für JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; }
-    </style>
-</head>
+<html lang="de"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europa-Park Wartezeiten Live</title>
+     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+     
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin=""></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin=""></script>
+     
+    <!-- Babel für JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+ 
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.inset-y-0{top:0px;bottom:0px}.left-0{left:0px}.bottom-0{bottom:0px}.top-0{top:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-8{margin-top:2rem}.mb-2{margin-bottom:0.5rem}.mt-3{margin-top:0.75rem}.flex{display:flex}.grid{display:grid}.h-24{height:6rem}.min-h-screen{min-height:100vh}.w-full{width:100%}.w-1\.5{width:0.375rem}.max-w-6xl{max-width:72rem}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.snap-x{scroll-snap-type:x var(--tw-scroll-snap-strictness)}.snap-start{scroll-snap-align:start}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.whitespace-nowrap{white-space:nowrap}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-t{border-top-width:1px}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-400{--tw-bg-opacity:1;background-color:rgb(156 163 175 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-900{--tw-gradient-from:#1e3a8a var(--tw-gradient-from-position);--tw-gradient-to:rgb(30 58 138 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-blue-800{--tw-gradient-to:rgb(30 64 175 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #1e40af var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-indigo-900{--tw-gradient-to:#312e81 var(--tw-gradient-to-position)}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pl-10{padding-left:2.5rem}.pl-3{padding-left:0.75rem}.pl-2{padding-left:0.5rem}.pr-2{padding-right:0.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.opacity-70{opacity:0.7}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:text-blue-800:hover{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-blue-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(59 130 246 / var(--tw-ring-opacity, 1))}.active\:bg-white\/20:active{background-color:rgb(255 255 255 / 0.2)}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:justify-start{justify-content:flex-start}.md\:text-left{text-align:left}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style><script>function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+var _React = React,
+  useState = _React.useState,
+  useEffect = _React.useEffect,
+  useMemo = _React.useMemo;
+ 
+// Icons
+var ClockIcon = function ClockIcon() {
+  return /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "10"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "12 6 12 12 16 14"
+  }));
+};
+var RefreshIcon = function RefreshIcon(_ref) {
+  var className = _ref.className;
+  return /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    className: className
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M21 2v6h-6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M3 12a9 9 0 0 1 15-6.7L21 8"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M3 22v-6h6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M21 12a9 9 0 0 1-15 6.7L3 16"
+  }));
+};
+var SearchIcon = function SearchIcon() {
+  return /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "11",
+    cy: "11",
+    r: "8"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "21",
+    y1: "21",
+    x2: "16.65",
+    y2: "16.65"
+  }));
+};
+var MapPinIcon = function MapPinIcon() {
+  return /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "10",
+    r: "3"
+  }));
+};
+var AlertIcon = function AlertIcon() {
+  return /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "12",
+    y1: "9",
+    x2: "12",
+    y2: "13"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "12",
+    y1: "17",
+    x2: "12.01",
+    y2: "17"
+  }));
+};
+var InfoIcon = function InfoIcon() {
+  return /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "20",
+    height: "20",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "10"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "12",
+    y1: "16",
+    x2: "12",
+    y2: "12"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "12",
+    y1: "8",
+    x2: "12.01",
+    y2: "8"
+  }));
+};
+var API_URL = 'https://ep-api-proxy.kirotpanda.workers.dev/';
+function App() {
+  var _useState = useState([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    rides = _useState2[0],
+    setRides = _useState2[1];
+  var _useState3 = useState(true),
+    _useState4 = _slicedToArray(_useState3, 2),
+    loading = _useState4[0],
+    setLoading = _useState4[1];
+  var _useState5 = useState(null),
+    _useState6 = _slicedToArray(_useState5, 2),
+    error = _useState6[0],
+    setError = _useState6[1];
+  var _useState7 = useState(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    lastUpdated = _useState8[0],
+    setLastUpdated = _useState8[1];
+  var _useState9 = useState(''),
+    _useState0 = _slicedToArray(_useState9, 2),
+    searchTerm = _useState0[0],
+    setSearchTerm = _useState0[1];
+  var _useState1 = useState('wait_asc'),
+    _useState10 = _slicedToArray(_useState1, 2),
+    sortBy = _useState10[0],
+    setSortBy = _useState10[1];
+  var fetchWaitTimes = /*#__PURE__*/function () {
+    var _fetchWaitTimes = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var response, data, allRides, _t, _t2;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            setLoading(true);
+            setError(null);
+            _context.p = 1;
+            _context.p = 2;
+            _context.n = 3;
+            return fetch("https://corsproxy.io/?".concat(encodeURIComponent(API_URL)));
+          case 3:
+            response = _context.v;
+            if (response.ok) {
+              _context.n = 4;
+              break;
+            }
+            throw new Error('Proxy 1 fehlgeschlagen');
+          case 4:
+            _context.n = 5;
+            return response.json();
+          case 5:
+            data = _context.v;
+            _context.n = 10;
+            break;
+          case 6:
+            _context.p = 6;
+            _t = _context.v;
+            console.log("Proxy 1 gescheitert, probiere Proxy 2...");
+            _context.n = 7;
+            return fetch("https://api.allorigins.win/raw?url=".concat(encodeURIComponent(API_URL)));
+          case 7:
+            response = _context.v;
+            if (response.ok) {
+              _context.n = 8;
+              break;
+            }
+            throw new Error('Beide Proxies fehlgeschlagen');
+          case 8:
+            _context.n = 9;
+            return response.json();
+          case 9:
+            data = _context.v;
+          case 10:
+            allRides = [];
+            if (data.lands) {
+              data.lands.forEach(function (land) {
+                land.rides.forEach(function (ride) {
+                  allRides.push({
+                    id: ride.id,
+                    name: ride.name,
+                    isOpen: ride.is_open,
+                    waitTime: ride.wait_time,
+                    land: land.name,
+                    lastUpdate: ride.last_updated
+                  });
+                });
+              });
+            }
+            if (data.rides) {
+              data.rides.forEach(function (ride) {
+                allRides.push({
+                  id: ride.id,
+                  name: ride.name,
+                  isOpen: ride.is_open,
+                  waitTime: ride.wait_time,
+                  land: 'Allgemein',
+                  lastUpdate: ride.last_updated
+                });
+              });
+            }
+            setRides(allRides);
+            setLastUpdated(new Date());
+            setError(null);
+            _context.n = 12;
+            break;
+          case 11:
+            _context.p = 11;
+            _t2 = _context.v;
+            console.error("API Fehler:", _t2);
+            setError("Verbindung zum Live-Server momentan blockiert. Zeige Demo-Daten.");
+            loadMockData();
+          case 12:
+            _context.p = 12;
+            setLoading(false);
+            return _context.f(12);
+          case 13:
+            return _context.a(2);
+        }
+      }, _callee, null, [[2, 6], [1, 11, 12, 13]]);
+    }));
+    function fetchWaitTimes() {
+      return _fetchWaitTimes.apply(this, arguments);
+    }
+    return fetchWaitTimes;
+  }();
+  var loadMockData = function loadMockData() {
+    var mockRides = [{
+      id: 1,
+      name: "Blue Fire Megacoaster",
+      isOpen: true,
+      waitTime: 45,
+      land: "Island"
+    }, {
+      id: 2,
+      name: "WODAN - Timburcoaster",
+      isOpen: true,
+      waitTime: 60,
+      land: "Island"
+    }, {
+      id: 3,
+      name: "Silver Star",
+      isOpen: true,
+      waitTime: 35,
+      land: "Frankreich"
+    }, {
+      id: 4,
+      name: "Eurosat - CanCan Coaster",
+      isOpen: true,
+      waitTime: 20,
+      land: "Frankreich"
+    }, {
+      id: 5,
+      name: "Arthur",
+      isOpen: true,
+      waitTime: 50,
+      land: "Königreich der Minimoys"
+    }, {
+      id: 6,
+      name: "Schweizer Bobbahn",
+      isOpen: true,
+      waitTime: 15,
+      land: "Schweiz"
+    }, {
+      id: 7,
+      name: "Euro-Mir",
+      isOpen: true,
+      waitTime: 25,
+      land: "Russland"
+    }, {
+      id: 8,
+      name: "Voltron Nevera",
+      isOpen: true,
+      waitTime: 85,
+      land: "Kroatien"
+    }, {
+      id: 9,
+      name: "Piraten in Batavia",
+      isOpen: true,
+      waitTime: 5,
+      land: "Niederlande"
+    }, {
+      id: 10,
+      name: "Tiroler Wildwasserbahn",
+      isOpen: false,
+      waitTime: 0,
+      land: "Österreich"
+    }];
+    setRides(mockRides);
+    setLastUpdated(new Date());
+  };
+  useEffect(function () {
+    fetchWaitTimes();
+    // Update alle 5 Minuten, wie in den API Docs empfohlen
+    var interval = setInterval(fetchWaitTimes, 5 * 60 * 1000);
+    return function () {
+      return clearInterval(interval);
+    };
+  }, []);
+  var filteredAndSortedRides = useMemo(function () {
+    var result = rides.filter(function (ride) {
+      return ride.name.toLowerCase().includes(searchTerm.toLowerCase()) || ride.land.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    result.sort(function (a, b) {
+      if (a.isOpen !== b.isOpen) return a.isOpen ? -1 : 1;
+      switch (sortBy) {
+        case 'wait_asc':
+          return a.waitTime - b.waitTime;
+        case 'wait_desc':
+          return b.waitTime - a.waitTime;
+        case 'name':
+          return a.name.localeCompare(b.name);
+        default:
+          return 0;
+      }
+    });
+    return result;
+  }, [rides, searchTerm, sortBy]);
+  var getWaitTimeBadge = function getWaitTimeBadge(isOpen, waitTime) {
+    if (!isOpen) return /*#__PURE__*/React.createElement("span", {
+      className: "px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm"
+    }, "Geschlossen");
+    var colorClass = 'bg-green-500';
+    if (waitTime > 15) colorClass = 'bg-yellow-500 text-gray-900';
+    if (waitTime > 40) colorClass = 'bg-red-500';
+    return /*#__PURE__*/React.createElement("span", {
+      className: "px-3 py-1 ".concat(colorClass, " text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1")
+    }, /*#__PURE__*/React.createElement(ClockIcon, null), waitTime, " ", /*#__PURE__*/React.createElement("span", {
+      className: "text-sm font-medium"
+    }, "Min."));
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "min-h-screen flex flex-col"
+  }, /*#__PURE__*/React.createElement("header", {
+    className: "bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white p-5 shadow-lg shrink-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "text-center md:text-left"
+  }, /*#__PURE__*/React.createElement("h1", {
+    className: "text-2xl md:text-3xl font-extrabold tracking-tight flex items-center justify-center md:justify-start gap-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "text-yellow-400 text-3xl"
+  }, "\u2605"), " EP Wartezeiten")), /*#__PURE__*/React.createElement("button", {
+    onClick: fetchWaitTimes,
+    disabled: loading,
+    className: "flex items-center gap-2 bg-white/10 active:bg-white/20 px-4 py-2 rounded-lg transition-all border border-white/20"
+  }, /*#__PURE__*/React.createElement(RefreshIcon, {
+    className: loading ? 'animate-spin' : ''
+  }), loading ? 'Lädt...' : 'Update'))), /*#__PURE__*/React.createElement("main", {
+    className: "max-w-6xl mx-auto p-4 flex-grow w-full"
+  }, error && /*#__PURE__*/React.createElement("div", {
+    className: "mb-6 p-3 bg-amber-50 border-l-4 border-amber-500 text-amber-800 rounded-r-lg flex items-start gap-3 text-sm"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "mt-0.5"
+  }, /*#__PURE__*/React.createElement(InfoIcon, null)), /*#__PURE__*/React.createElement("p", null, error)), /*#__PURE__*/React.createElement("div", {
+    className: "bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex flex-col gap-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "relative w-full"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400"
+  }, /*#__PURE__*/React.createElement(SearchIcon, null)), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    placeholder: "Suchen (z.B. Silver Star)...",
+    value: searchTerm,
+    onChange: function onChange(e) {
+      return setSearchTerm(e.target.value);
+    },
+    className: "pl-10 w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "flex gap-2 w-full overflow-x-auto pb-2 snap-x"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setSortBy('wait_asc');
+    },
+    className: "snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ".concat(sortBy === 'wait_asc' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200')
+  }, "\u2193 Beste Zeit"), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setSortBy('wait_desc');
+    },
+    className: "snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ".concat(sortBy === 'wait_desc' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200')
+  }, "\u2191 L\xE4ngste Zeit"), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setSortBy('name');
+    },
+    className: "snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ".concat(sortBy === 'name' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200')
+  }, "A-Z Name"))), /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-end mb-4 px-1"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "text-sm font-semibold text-slate-600"
+  }, filteredAndSortedRides.length, " Treffer"), lastUpdated && /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-slate-400"
+  }, "Stand: ", lastUpdated.toLocaleTimeString('de-DE').slice(0, 5))), loading && rides.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-1 gap-3"
+  }, [1, 2, 3, 4].map(function (i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      className: "bg-white h-24 rounded-xl animate-pulse border border-slate-100"
+    });
+  })) : /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+  }, filteredAndSortedRides.map(function (ride) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: ride.id,
+      className: "relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between ".concat(!ride.isOpen ? 'opacity-70' : '')
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "absolute left-0 top-0 bottom-0 w-1.5 ".concat(!ride.isOpen ? 'bg-gray-400' : ride.waitTime <= 15 ? 'bg-green-500' : ride.waitTime <= 40 ? 'bg-yellow-500' : 'bg-red-500')
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "pl-2"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex justify-between items-start gap-2 mb-2"
+    }, /*#__PURE__*/React.createElement("h3", {
+      className: "font-bold text-slate-800 text-lg leading-tight pr-2"
+    }, ride.name), /*#__PURE__*/React.createElement("div", {
+      className: "shrink-0"
+    }, getWaitTimeBadge(ride.isOpen, ride.waitTime))), /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center gap-1.5 text-sm text-slate-500 mt-3"
+    }, /*#__PURE__*/React.createElement(MapPinIcon, null), /*#__PURE__*/React.createElement("span", null, ride.land))));
+  }), filteredAndSortedRides.length === 0 && !loading && /*#__PURE__*/React.createElement("div", {
+    className: "col-span-full py-10 text-center text-slate-400 bg-white rounded-xl border border-slate-200"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-center mb-2 opacity-30"
+  }, /*#__PURE__*/React.createElement(AlertIcon, null)), /*#__PURE__*/React.createElement("p", null, "Nichts gefunden.")))), /*#__PURE__*/React.createElement("footer", {
+    className: "mt-8 py-6 text-center text-slate-500 text-sm border-t border-slate-200 shrink-0"
+  }, "Powered by ", /*#__PURE__*/React.createElement("a", {
+    href: "https://queue-times.com/de",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "text-blue-600 hover:text-blue-800 font-semibold transition-colors"
+  }, "Queue-Times.com")));
+}
+var root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(/*#__PURE__*/React.createElement(App, null));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiSW5saW5lIEJhYmVsIHNjcmlwdCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgICAgICAgY29uc3QgeyB1c2VTdGF0ZSwgdXNlRWZmZWN0LCB1c2VNZW1vIH0gPSBSZWFjdDtcblxuICAgICAgICAvLyBJY29uc1xuICAgICAgICBjb25zdCBDbG9ja0ljb24gPSAoKSA9PiA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB3aWR0aD1cIjE2XCIgaGVpZ2h0PVwiMTZcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCIgZmlsbD1cIm5vbmVcIiBzdHJva2U9XCJjdXJyZW50Q29sb3JcIiBzdHJva2VXaWR0aD1cIjJcIiBzdHJva2VMaW5lY2FwPVwicm91bmRcIiBzdHJva2VMaW5lam9pbj1cInJvdW5kXCI+PGNpcmNsZSBjeD1cIjEyXCIgY3k9XCIxMlwiIHI9XCIxMFwiPjwvY2lyY2xlPjxwb2x5bGluZSBwb2ludHM9XCIxMiA2IDEyIDEyIDE2IDE0XCI+PC9wb2x5bGluZT48L3N2Zz47XG4gICAgICAgIGNvbnN0IFJlZnJlc2hJY29uID0gKHsgY2xhc3NOYW1lIH0pID0+IDxzdmcgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHdpZHRoPVwiMThcIiBoZWlnaHQ9XCIxOFwiIHZpZXdCb3g9XCIwIDAgMjQgMjRcIiBmaWxsPVwibm9uZVwiIHN0cm9rZT1cImN1cnJlbnRDb2xvclwiIHN0cm9rZVdpZHRoPVwiMlwiIHN0cm9rZUxpbmVjYXA9XCJyb3VuZFwiIHN0cm9rZUxpbmVqb2luPVwicm91bmRcIiBjbGFzc05hbWU9e2NsYXNzTmFtZX0+PHBhdGggZD1cIk0yMSAydjZoLTZcIj48L3BhdGg+PHBhdGggZD1cIk0zIDEyYTkgOSAwIDAgMSAxNS02LjdMMjEgOFwiPjwvcGF0aD48cGF0aCBkPVwiTTMgMjJ2LTZoNlwiPjwvcGF0aD48cGF0aCBkPVwiTTIxIDEyYTkgOSAwIDAgMS0xNSA2LjdMMyAxNlwiPjwvcGF0aD48L3N2Zz47XG4gICAgICAgIGNvbnN0IFNlYXJjaEljb24gPSAoKSA9PiA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB3aWR0aD1cIjE4XCIgaGVpZ2h0PVwiMThcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCIgZmlsbD1cIm5vbmVcIiBzdHJva2U9XCJjdXJyZW50Q29sb3JcIiBzdHJva2VXaWR0aD1cIjJcIiBzdHJva2VMaW5lY2FwPVwicm91bmRcIiBzdHJva2VMaW5lam9pbj1cInJvdW5kXCI+PGNpcmNsZSBjeD1cIjExXCIgY3k9XCIxMVwiIHI9XCI4XCI+PC9jaXJjbGU+PGxpbmUgeDE9XCIyMVwiIHkxPVwiMjFcIiB4Mj1cIjE2LjY1XCIgeTI9XCIxNi42NVwiPjwvbGluZT48L3N2Zz47XG4gICAgICAgIGNvbnN0IE1hcFBpbkljb24gPSAoKSA9PiA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB3aWR0aD1cIjE0XCIgaGVpZ2h0PVwiMTRcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCIgZmlsbD1cIm5vbmVcIiBzdHJva2U9XCJjdXJyZW50Q29sb3JcIiBzdHJva2VXaWR0aD1cIjJcIiBzdHJva2VMaW5lY2FwPVwicm91bmRcIiBzdHJva2VMaW5lam9pbj1cInJvdW5kXCI+PHBhdGggZD1cIk0yMSAxMGMwIDctOSAxMy05IDEzcy05LTYtOS0xM2E5IDkgMCAwIDEgMTggMHpcIj48L3BhdGg+PGNpcmNsZSBjeD1cIjEyXCIgY3k9XCIxMFwiIHI9XCIzXCI+PC9jaXJjbGU+PC9zdmc+O1xuICAgICAgICBjb25zdCBBbGVydEljb24gPSAoKSA9PiA8c3ZnIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB3aWR0aD1cIjQ4XCIgaGVpZ2h0PVwiNDhcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCIgZmlsbD1cIm5vbmVcIiBzdHJva2U9XCJjdXJyZW50Q29sb3JcIiBzdHJva2VXaWR0aD1cIjJcIiBzdHJva2VMaW5lY2FwPVwicm91bmRcIiBzdHJva2VMaW5lam9pbj1cInJvdW5kXCI+PHBhdGggZD1cIm0yMS43MyAxOC04LTE0YTIgMiAwIDAgMC0zLjQ4IDBsLTggMTRBMiAyIDAgMCAwIDQgMjFoMTZhMiAyIDAgMCAwIDEuNzMtM1pcIj48L3BhdGg+PGxpbmUgeDE9XCIxMlwiIHkxPVwiOVwiIHgyPVwiMTJcIiB5Mj1cIjEzXCI+PC9saW5lPjxsaW5lIHgxPVwiMTJcIiB5MT1cIjE3XCIgeDI9XCIxMi4wMVwiIHkyPVwiMTdcIj48L2xpbmU+PC9zdmc+O1xuICAgICAgICBjb25zdCBJbmZvSWNvbiA9ICgpID0+IDxzdmcgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHdpZHRoPVwiMjBcIiBoZWlnaHQ9XCIyMFwiIHZpZXdCb3g9XCIwIDAgMjQgMjRcIiBmaWxsPVwibm9uZVwiIHN0cm9rZT1cImN1cnJlbnRDb2xvclwiIHN0cm9rZVdpZHRoPVwiMlwiIHN0cm9rZUxpbmVjYXA9XCJyb3VuZFwiIHN0cm9rZUxpbmVqb2luPVwicm91bmRcIj48Y2lyY2xlIGN4PVwiMTJcIiBjeT1cIjEyXCIgcj1cIjEwXCI+PC9jaXJjbGU+PGxpbmUgeDE9XCIxMlwiIHkxPVwiMTZcIiB4Mj1cIjEyXCIgeTI9XCIxMlwiPjwvbGluZT48bGluZSB4MT1cIjEyXCIgeTE9XCI4XCIgeDI9XCIxMi4wMVwiIHkyPVwiOFwiPjwvbGluZT48L3N2Zz47XG5cbiAgICAgICAgY29uc3QgQVBJX1VSTCA9ICdodHRwczovL2VwLWFwaS1wcm94eS5raXJvdHBhbmRhLndvcmtlcnMuZGV2Lyc7XG5cbiAgICAgICAgZnVuY3Rpb24gQXBwKCkge1xuICAgICAgICAgICAgY29uc3QgW3JpZGVzLCBzZXRSaWRlc10gPSB1c2VTdGF0ZShbXSk7XG4gICAgICAgICAgICBjb25zdCBbbG9hZGluZywgc2V0TG9hZGluZ10gPSB1c2VTdGF0ZSh0cnVlKTtcbiAgICAgICAgICAgIGNvbnN0IFtlcnJvciwgc2V0RXJyb3JdID0gdXNlU3RhdGUobnVsbCk7XG4gICAgICAgICAgICBjb25zdCBbbGFzdFVwZGF0ZWQsIHNldExhc3RVcGRhdGVkXSA9IHVzZVN0YXRlKG51bGwpO1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBjb25zdCBbc2VhcmNoVGVybSwgc2V0U2VhcmNoVGVybV0gPSB1c2VTdGF0ZSgnJyk7XG4gICAgICAgICAgICBjb25zdCBbc29ydEJ5LCBzZXRTb3J0QnldID0gdXNlU3RhdGUoJ3dhaXRfYXNjJyk7XG5cbiAgICAgICAgICAgIGNvbnN0IGZldGNoV2FpdFRpbWVzID0gYXN5bmMgKCkgPT4ge1xuICAgICAgICAgICAgICAgIHNldExvYWRpbmcodHJ1ZSk7XG4gICAgICAgICAgICAgICAgc2V0RXJyb3IobnVsbCk7XG4gICAgICAgICAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgICAgICAgICAgbGV0IHJlc3BvbnNlO1xuICAgICAgICAgICAgICAgICAgICBsZXQgZGF0YTtcblxuICAgICAgICAgICAgICAgICAgICAvLyBQcm94eS1GYWxsYmFja3MgdW0gQ09SUyB6dSB1bWdlaGVuXG4gICAgICAgICAgICAgICAgICAgIHRyeSB7XG4gICAgICAgICAgICAgICAgICAgICAgICByZXNwb25zZSA9IGF3YWl0IGZldGNoKGBodHRwczovL2NvcnNwcm94eS5pby8/JHtlbmNvZGVVUklDb21wb25lbnQoQVBJX1VSTCl9YCk7XG4gICAgICAgICAgICAgICAgICAgICAgICBpZiAoIXJlc3BvbnNlLm9rKSB0aHJvdyBuZXcgRXJyb3IoJ1Byb3h5IDEgZmVobGdlc2NobGFnZW4nKTtcbiAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBhd2FpdCByZXNwb25zZS5qc29uKCk7XG4gICAgICAgICAgICAgICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKFwiUHJveHkgMSBnZXNjaGVpdGVydCwgcHJvYmllcmUgUHJveHkgMi4uLlwiKTtcbiAgICAgICAgICAgICAgICAgICAgICAgIHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goYGh0dHBzOi8vYXBpLmFsbG9yaWdpbnMud2luL3Jhdz91cmw9JHtlbmNvZGVVUklDb21wb25lbnQoQVBJX1VSTCl9YCk7XG4gICAgICAgICAgICAgICAgICAgICAgICBpZiAoIXJlc3BvbnNlLm9rKSB0aHJvdyBuZXcgRXJyb3IoJ0JlaWRlIFByb3hpZXMgZmVobGdlc2NobGFnZW4nKTtcbiAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBhd2FpdCByZXNwb25zZS5qc29uKCk7XG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgIGxldCBhbGxSaWRlcyA9IFtdO1xuICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgaWYgKGRhdGEubGFuZHMpIHtcbiAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEubGFuZHMuZm9yRWFjaChsYW5kID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYW5kLnJpZGVzLmZvckVhY2gocmlkZSA9PiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFsbFJpZGVzLnB1c2goe1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWQ6IHJpZGUuaWQsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuYW1lOiByaWRlLm5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpc09wZW46IHJpZGUuaXNfb3BlbixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdhaXRUaW1lOiByaWRlLndhaXRfdGltZSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxhbmQ6IGxhbmQubmFtZSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxhc3RVcGRhdGU6IHJpZGUubGFzdF91cGRhdGVkXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0pO1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0pO1xuICAgICAgICAgICAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgIGlmIChkYXRhLnJpZGVzKSB7XG4gICAgICAgICAgICAgICAgICAgICAgICBkYXRhLnJpZGVzLmZvckVhY2gocmlkZSA9PiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgYWxsUmlkZXMucHVzaCh7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlkOiByaWRlLmlkLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuYW1lOiByaWRlLm5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlzT3BlbjogcmlkZS5pc19vcGVuLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3YWl0VGltZTogcmlkZS53YWl0X3RpbWUsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxhbmQ6ICdBbGxnZW1laW4nLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYXN0VXBkYXRlOiByaWRlLmxhc3RfdXBkYXRlZFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0pO1xuICAgICAgICAgICAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICAgICAgICAgIH1cblxuICAgICAgICAgICAgICAgICAgICBzZXRSaWRlcyhhbGxSaWRlcyk7XG4gICAgICAgICAgICAgICAgICAgIHNldExhc3RVcGRhdGVkKG5ldyBEYXRlKCkpO1xuICAgICAgICAgICAgICAgICAgICBzZXRFcnJvcihudWxsKTtcbiAgICAgICAgICAgICAgICB9IGNhdGNoIChlcnIpIHtcbiAgICAgICAgICAgICAgICAgICAgY29uc29sZS5lcnJvcihcIkFQSSBGZWhsZXI6XCIsIGVycik7XG4gICAgICAgICAgICAgICAgICAgIHNldEVycm9yKFwiVmVyYmluZHVuZyB6dW0gTGl2ZS1TZXJ2ZXIgbW9tZW50YW4gYmxvY2tpZXJ0LiBaZWlnZSBEZW1vLURhdGVuLlwiKTtcbiAgICAgICAgICAgICAgICAgICAgbG9hZE1vY2tEYXRhKCk7XG4gICAgICAgICAgICAgICAgfSBmaW5hbGx5IHtcbiAgICAgICAgICAgICAgICAgICAgc2V0TG9hZGluZyhmYWxzZSk7XG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgfTtcblxuICAgICAgICAgICAgY29uc3QgbG9hZE1vY2tEYXRhID0gKCkgPT4ge1xuICAgICAgICAgICAgICAgIGNvbnN0IG1vY2tSaWRlcyA9IFtcbiAgICAgICAgICAgICAgICAgICAgeyBpZDogMSwgbmFtZTogXCJCbHVlIEZpcmUgTWVnYWNvYXN0ZXJcIiwgaXNPcGVuOiB0cnVlLCB3YWl0VGltZTogNDUsIGxhbmQ6IFwiSXNsYW5kXCIgfSxcbiAgICAgICAgICAgICAgICAgICAgeyBpZDogMiwgbmFtZTogXCJXT0RBTiAtIFRpbWJ1cmNvYXN0ZXJcIiwgaXNPcGVuOiB0cnVlLCB3YWl0VGltZTogNjAsIGxhbmQ6IFwiSXNsYW5kXCIgfSxcbiAgICAgICAgICAgICAgICAgICAgeyBpZDogMywgbmFtZTogXCJTaWx2ZXIgU3RhclwiLCBpc09wZW46IHRydWUsIHdhaXRUaW1lOiAzNSwgbGFuZDogXCJGcmFua3JlaWNoXCIgfSxcbiAgICAgICAgICAgICAgICAgICAgeyBpZDogNCwgbmFtZTogXCJFdXJvc2F0IC0gQ2FuQ2FuIENvYXN0ZXJcIiwgaXNPcGVuOiB0cnVlLCB3YWl0VGltZTogMjAsIGxhbmQ6IFwiRnJhbmtyZWljaFwiIH0sXG4gICAgICAgICAgICAgICAgICAgIHsgaWQ6IDUsIG5hbWU6IFwiQXJ0aHVyXCIsIGlzT3BlbjogdHJ1ZSwgd2FpdFRpbWU6IDUwLCBsYW5kOiBcIkvDtm5pZ3JlaWNoIGRlciBNaW5pbW95c1wiIH0sXG4gICAgICAgICAgICAgICAgICAgIHsgaWQ6IDYsIG5hbWU6IFwiU2Nod2VpemVyIEJvYmJhaG5cIiwgaXNPcGVuOiB0cnVlLCB3YWl0VGltZTogMTUsIGxhbmQ6IFwiU2Nod2VpelwiIH0sXG4gICAgICAgICAgICAgICAgICAgIHsgaWQ6IDcsIG5hbWU6IFwiRXVyby1NaXJcIiwgaXNPcGVuOiB0cnVlLCB3YWl0VGltZTogMjUsIGxhbmQ6IFwiUnVzc2xhbmRcIiB9LFxuICAgICAgICAgICAgICAgICAgICB7IGlkOiA4LCBuYW1lOiBcIlZvbHRyb24gTmV2ZXJhXCIsIGlzT3BlbjogdHJ1ZSwgd2FpdFRpbWU6IDg1LCBsYW5kOiBcIktyb2F0aWVuXCIgfSxcbiAgICAgICAgICAgICAgICAgICAgeyBpZDogOSwgbmFtZTogXCJQaXJhdGVuIGluIEJhdGF2aWFcIiwgaXNPcGVuOiB0cnVlLCB3YWl0VGltZTogNSwgbGFuZDogXCJOaWVkZXJsYW5kZVwiIH0sXG4gICAgICAgICAgICAgICAgICAgIHsgaWQ6IDEwLCBuYW1lOiBcIlRpcm9sZXIgV2lsZHdhc3NlcmJhaG5cIiwgaXNPcGVuOiBmYWxzZSwgd2FpdFRpbWU6IDAsIGxhbmQ6IFwiw5ZzdGVycmVpY2hcIiB9LFxuICAgICAgICAgICAgICAgIF07XG4gICAgICAgICAgICAgICAgc2V0UmlkZXMobW9ja1JpZGVzKTtcbiAgICAgICAgICAgICAgICBzZXRMYXN0VXBkYXRlZChuZXcgRGF0ZSgpKTtcbiAgICAgICAgICAgIH07XG5cbiAgICAgICAgICAgIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgICAgICAgICAgICAgZmV0Y2hXYWl0VGltZXMoKTtcbiAgICAgICAgICAgICAgICAvLyBVcGRhdGUgYWxsZSA1IE1pbnV0ZW4sIHdpZSBpbiBkZW4gQVBJIERvY3MgZW1wZm9obGVuXG4gICAgICAgICAgICAgICAgY29uc3QgaW50ZXJ2YWwgPSBzZXRJbnRlcnZhbChmZXRjaFdhaXRUaW1lcywgNSAqIDYwICogMTAwMCk7XG4gICAgICAgICAgICAgICAgcmV0dXJuICgpID0+IGNsZWFySW50ZXJ2YWwoaW50ZXJ2YWwpO1xuICAgICAgICAgICAgfSwgW10pO1xuXG4gICAgICAgICAgICBjb25zdCBmaWx0ZXJlZEFuZFNvcnRlZFJpZGVzID0gdXNlTWVtbygoKSA9PiB7XG4gICAgICAgICAgICAgICAgbGV0IHJlc3VsdCA9IHJpZGVzLmZpbHRlcihyaWRlID0+IFxuICAgICAgICAgICAgICAgICAgICByaWRlLm5hbWUudG9Mb3dlckNhc2UoKS5pbmNsdWRlcyhzZWFyY2hUZXJtLnRvTG93ZXJDYXNlKCkpIHx8IFxuICAgICAgICAgICAgICAgICAgICByaWRlLmxhbmQudG9Mb3dlckNhc2UoKS5pbmNsdWRlcyhzZWFyY2hUZXJtLnRvTG93ZXJDYXNlKCkpXG4gICAgICAgICAgICAgICAgKTtcblxuICAgICAgICAgICAgICAgIHJlc3VsdC5zb3J0KChhLCBiKSA9PiB7XG4gICAgICAgICAgICAgICAgICAgIGlmIChhLmlzT3BlbiAhPT0gYi5pc09wZW4pIHJldHVybiBhLmlzT3BlbiA/IC0xIDogMTtcbiAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgIHN3aXRjaCAoc29ydEJ5KSB7XG4gICAgICAgICAgICAgICAgICAgICAgICBjYXNlICd3YWl0X2FzYyc6IHJldHVybiBhLndhaXRUaW1lIC0gYi53YWl0VGltZTtcbiAgICAgICAgICAgICAgICAgICAgICAgIGNhc2UgJ3dhaXRfZGVzYyc6IHJldHVybiBiLndhaXRUaW1lIC0gYS53YWl0VGltZTtcbiAgICAgICAgICAgICAgICAgICAgICAgIGNhc2UgJ25hbWUnOiByZXR1cm4gYS5uYW1lLmxvY2FsZUNvbXBhcmUoYi5uYW1lKTtcbiAgICAgICAgICAgICAgICAgICAgICAgIGRlZmF1bHQ6IHJldHVybiAwO1xuICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICAgICAgcmV0dXJuIHJlc3VsdDtcbiAgICAgICAgICAgIH0sIFtyaWRlcywgc2VhcmNoVGVybSwgc29ydEJ5XSk7XG5cbiAgICAgICAgICAgIGNvbnN0IGdldFdhaXRUaW1lQmFkZ2UgPSAoaXNPcGVuLCB3YWl0VGltZSkgPT4ge1xuICAgICAgICAgICAgICAgIGlmICghaXNPcGVuKSByZXR1cm4gPHNwYW4gY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLWdyYXktMjAwIHRleHQtZ3JheS02MDAgcm91bmRlZC1mdWxsIGZvbnQtYm9sZCB0ZXh0LXNtXCI+R2VzY2hsb3NzZW48L3NwYW4+O1xuICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgIGxldCBjb2xvckNsYXNzID0gJ2JnLWdyZWVuLTUwMCc7XG4gICAgICAgICAgICAgICAgaWYgKHdhaXRUaW1lID4gMTUpIGNvbG9yQ2xhc3MgPSAnYmcteWVsbG93LTUwMCB0ZXh0LWdyYXktOTAwJztcbiAgICAgICAgICAgICAgICBpZiAod2FpdFRpbWUgPiA0MCkgY29sb3JDbGFzcyA9ICdiZy1yZWQtNTAwJztcblxuICAgICAgICAgICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17YHB4LTMgcHktMSAke2NvbG9yQ2xhc3N9IHRleHQtd2hpdGUgcm91bmRlZC1mdWxsIGZvbnQtYm9sZCB0ZXh0LWxnIHNoYWRvdy1zbSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMWB9PlxuICAgICAgICAgICAgICAgICAgICAgICAgPENsb2NrSWNvbiAvPlxuICAgICAgICAgICAgICAgICAgICAgICAge3dhaXRUaW1lfSA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXNtIGZvbnQtbWVkaXVtXCI+TWluLjwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICk7XG4gICAgICAgICAgICB9O1xuXG4gICAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGZsZXggZmxleC1jb2xcIj5cbiAgICAgICAgICAgICAgICAgICAgey8qIEhlYWRlciAqL31cbiAgICAgICAgICAgICAgICAgICAgPGhlYWRlciBjbGFzc05hbWU9XCJiZy1ncmFkaWVudC10by1yIGZyb20tYmx1ZS05MDAgdmlhLWJsdWUtODAwIHRvLWluZGlnby05MDAgdGV4dC13aGl0ZSBwLTUgc2hhZG93LWxnIHNocmluay0wXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1heC13LTZ4bCBteC1hdXRvIGZsZXggZmxleC1jb2wgbWQ6ZmxleC1yb3cganVzdGlmeS1iZXR3ZWVuIGl0ZW1zLWNlbnRlciBnYXAtNFwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1jZW50ZXIgbWQ6dGV4dC1sZWZ0XCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBtZDp0ZXh0LTN4bCBmb250LWV4dHJhYm9sZCB0cmFja2luZy10aWdodCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBtZDpqdXN0aWZ5LXN0YXJ0IGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXllbGxvdy00MDAgdGV4dC0zeGxcIj7imIU8L3NwYW4+IEVQIFdhcnRlemVpdGVuXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvaDE+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17ZmV0Y2hXYWl0VGltZXN9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc2FibGVkPXtsb2FkaW5nfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBiZy13aGl0ZS8xMCBhY3RpdmU6Ymctd2hpdGUvMjAgcHgtNCBweS0yIHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1hbGwgYm9yZGVyIGJvcmRlci13aGl0ZS8yMFwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8UmVmcmVzaEljb24gY2xhc3NOYW1lPXtsb2FkaW5nID8gJ2FuaW1hdGUtc3BpbicgOiAnJ30gLz5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge2xvYWRpbmcgPyAnTMOkZHQuLi4nIDogJ1VwZGF0ZSd9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPC9oZWFkZXI+XG5cbiAgICAgICAgICAgICAgICAgICAgey8qIE1haW4gQ29udGVudCAoZmxleC1ncm93IGZpbGxzIGF2YWlsYWJsZSBzcGFjZSkgKi99XG4gICAgICAgICAgICAgICAgICAgIDxtYWluIGNsYXNzTmFtZT1cIm1heC13LTZ4bCBteC1hdXRvIHAtNCBmbGV4LWdyb3cgdy1mdWxsXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICB7ZXJyb3IgJiYgKFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWItNiBwLTMgYmctYW1iZXItNTAgYm9yZGVyLWwtNCBib3JkZXItYW1iZXItNTAwIHRleHQtYW1iZXItODAwIHJvdW5kZWQtci1sZyBmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0zIHRleHQtc21cIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0wLjVcIj48SW5mb0ljb24gLz48L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHA+e2Vycm9yfTwvcD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgICAgICAgICAgICAgIHsvKiBDb250cm9scyAqL31cbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUgcC00IHJvdW5kZWQteGwgc2hhZG93LXNtIGJvcmRlciBib3JkZXItc2xhdGUtMjAwIG1iLTYgZmxleCBmbGV4LWNvbCBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmUgdy1mdWxsXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgaW5zZXQteS0wIGxlZnQtMCBwbC0zIGZsZXggaXRlbXMtY2VudGVyIHBvaW50ZXItZXZlbnRzLW5vbmUgdGV4dC1zbGF0ZS00MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxTZWFyY2hJY29uIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiU3VjaGVuICh6LkIuIFNpbHZlciBTdGFyKS4uLlwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17c2VhcmNoVGVybX1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0U2VhcmNoVGVybShlLnRhcmdldC52YWx1ZSl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwbC0xMCB3LWZ1bGwgcC0zIGJnLXNsYXRlLTUwIGJvcmRlciBib3JkZXItc2xhdGUtMjAwIHJvdW5kZWQtbGcgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOnJpbmctMiBmb2N1czpyaW5nLWJsdWUtNTAwXCJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBnYXAtMiB3LWZ1bGwgb3ZlcmZsb3cteC1hdXRvIHBiLTIgc25hcC14XCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNvcnRCeSgnd2FpdF9hc2MnKX1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YHNuYXAtc3RhcnQgd2hpdGVzcGFjZS1ub3dyYXAgcHgtNCBweS0yIHJvdW5kZWQtbGcgdGV4dC1zbSBmb250LW1lZGl1bSBib3JkZXIgJHtzb3J0QnkgPT09ICd3YWl0X2FzYycgPyAnYmctYmx1ZS0xMDAgdGV4dC1ibHVlLTcwMCBib3JkZXItYmx1ZS0yMDAnIDogJ2JnLXNsYXRlLTUwIHRleHQtc2xhdGUtNjAwIGJvcmRlci1zbGF0ZS0yMDAnfWB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKGkyBCZXN0ZSBaZWl0XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTb3J0QnkoJ3dhaXRfZGVzYycpfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgc25hcC1zdGFydCB3aGl0ZXNwYWNlLW5vd3JhcCBweC00IHB5LTIgcm91bmRlZC1sZyB0ZXh0LXNtIGZvbnQtbWVkaXVtIGJvcmRlciAke3NvcnRCeSA9PT0gJ3dhaXRfZGVzYycgPyAnYmctYmx1ZS0xMDAgdGV4dC1ibHVlLTcwMCBib3JkZXItYmx1ZS0yMDAnIDogJ2JnLXNsYXRlLTUwIHRleHQtc2xhdGUtNjAwIGJvcmRlci1zbGF0ZS0yMDAnfWB9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKGkSBMw6RuZ3N0ZSBaZWl0XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTb3J0QnkoJ25hbWUnKX1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YHNuYXAtc3RhcnQgd2hpdGVzcGFjZS1ub3dyYXAgcHgtNCBweS0yIHJvdW5kZWQtbGcgdGV4dC1zbSBmb250LW1lZGl1bSBib3JkZXIgJHtzb3J0QnkgPT09ICduYW1lJyA/ICdiZy1ibHVlLTEwMCB0ZXh0LWJsdWUtNzAwIGJvcmRlci1ibHVlLTIwMCcgOiAnYmctc2xhdGUtNTAgdGV4dC1zbGF0ZS02MDAgYm9yZGVyLXNsYXRlLTIwMCd9YH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQS1aIE5hbWVcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGp1c3RpZnktYmV0d2VlbiBpdGVtcy1lbmQgbWItNCBweC0xXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LXNsYXRlLTYwMFwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7ZmlsdGVyZWRBbmRTb3J0ZWRSaWRlcy5sZW5ndGh9IFRyZWZmZXJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2gyPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtsYXN0VXBkYXRlZCAmJiAoXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1zbGF0ZS00MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFN0YW5kOiB7bGFzdFVwZGF0ZWQudG9Mb2NhbGVUaW1lU3RyaW5nKCdkZS1ERScpLnNsaWNlKDAsNSl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgICAgICAgICAgIHtsb2FkaW5nICYmIHJpZGVzLmxlbmd0aCA9PT0gMCA/IChcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge1sxLCAyLCAzLCA0XS5tYXAoaSA9PiA8ZGl2IGtleT17aX0gY2xhc3NOYW1lPVwiYmctd2hpdGUgaC0yNCByb3VuZGVkLXhsIGFuaW1hdGUtcHVsc2UgYm9yZGVyIGJvcmRlci1zbGF0ZS0xMDBcIj48L2Rpdj4pfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgKSA6IChcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTMgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge2ZpbHRlcmVkQW5kU29ydGVkUmlkZXMubWFwKChyaWRlKSA9PiAoXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGtleT17cmlkZS5pZH0gY2xhc3NOYW1lPXtgcmVsYXRpdmUgb3ZlcmZsb3ctaGlkZGVuIHJvdW5kZWQteGwgYm9yZGVyIHAtNCBiZy13aGl0ZSBzaGFkb3ctc20gZmxleCBmbGV4LWNvbCBqdXN0aWZ5LWJldHdlZW4gJHshcmlkZS5pc09wZW4gPyAnb3BhY2l0eS03MCcgOiAnJ31gfT5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17YGFic29sdXRlIGxlZnQtMCB0b3AtMCBib3R0b20tMCB3LTEuNSAkeyFyaWRlLmlzT3BlbiA/ICdiZy1ncmF5LTQwMCcgOiByaWRlLndhaXRUaW1lIDw9IDE1ID8gJ2JnLWdyZWVuLTUwMCcgOiByaWRlLndhaXRUaW1lIDw9IDQwID8gJ2JnLXllbGxvdy01MDAnIDogJ2JnLXJlZC01MDAnfWB9PjwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicGwtMlwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgganVzdGlmeS1iZXR3ZWVuIGl0ZW1zLXN0YXJ0IGdhcC0yIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJmb250LWJvbGQgdGV4dC1zbGF0ZS04MDAgdGV4dC1sZyBsZWFkaW5nLXRpZ2h0IHByLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7cmlkZS5uYW1lfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9oMz5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2hyaW5rLTBcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Z2V0V2FpdFRpbWVCYWRnZShyaWRlLmlzT3BlbiwgcmlkZS53YWl0VGltZSl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0xLjUgdGV4dC1zbSB0ZXh0LXNsYXRlLTUwMCBtdC0zXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TWFwUGluSWNvbiAvPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4+e3JpZGUubGFuZH08L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge2ZpbHRlcmVkQW5kU29ydGVkUmlkZXMubGVuZ3RoID09PSAwICYmICFsb2FkaW5nICYmIChcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29sLXNwYW4tZnVsbCBweS0xMCB0ZXh0LWNlbnRlciB0ZXh0LXNsYXRlLTQwMCBiZy13aGl0ZSByb3VuZGVkLXhsIGJvcmRlciBib3JkZXItc2xhdGUtMjAwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGp1c3RpZnktY2VudGVyIG1iLTIgb3BhY2l0eS0zMFwiPjxBbGVydEljb24gLz48L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cD5OaWNodHMgZ2VmdW5kZW4uPC9wPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgICAgICA8L21haW4+XG5cbiAgICAgICAgICAgICAgICAgICAgey8qIEF0dHJpYnV0aW9uIEZvb3RlciAoT2JsaWdhdG9yaXNjaCBsYXV0IEFQSSBEb2NzKSAqL31cbiAgICAgICAgICAgICAgICAgICAgPGZvb3RlciBjbGFzc05hbWU9XCJtdC04IHB5LTYgdGV4dC1jZW50ZXIgdGV4dC1zbGF0ZS01MDAgdGV4dC1zbSBib3JkZXItdCBib3JkZXItc2xhdGUtMjAwIHNocmluay0wXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICBQb3dlcmVkIGJ5IDxhIGhyZWY9XCJodHRwczovL3F1ZXVlLXRpbWVzLmNvbS9kZVwiIHRhcmdldD1cIl9ibGFua1wiIHJlbD1cIm5vb3BlbmVyIG5vcmVmZXJyZXJcIiBjbGFzc05hbWU9XCJ0ZXh0LWJsdWUtNjAwIGhvdmVyOnRleHQtYmx1ZS04MDAgZm9udC1zZW1pYm9sZCB0cmFuc2l0aW9uLWNvbG9yc1wiPlF1ZXVlLVRpbWVzLmNvbTwvYT5cbiAgICAgICAgICAgICAgICAgICAgPC9mb290ZXI+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApO1xuICAgICAgICB9XG5cbiAgICAgICAgY29uc3Qgcm9vdCA9IFJlYWN0RE9NLmNyZWF0ZVJvb3QoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jvb3QnKSk7XG4gICAgICAgIHJvb3QucmVuZGVyKDxBcHAgLz4pO1xuICAgICJdLCJtYXBwaW5ncyI6IjBCQUNBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQVEsYUFBeUMsS0FBSztFQUF0QyxRQUFRLFVBQVIsUUFBUTtFQUFFLFNBQVMsVUFBVCxTQUFTO0VBQUUsT0FBTyxVQUFQLE9BQU87O0FBRXBDO0FBQ0EsSUFBTSxTQUFTLEdBQUcsU0FBWixTQUFTO0VBQUEsb0JBQVM7SUFBSyxLQUFLLEVBQUMsNEJBQTRCO0lBQUMsS0FBSyxFQUFDLElBQUk7SUFBQyxNQUFNLEVBQUMsSUFBSTtJQUFDLE9BQU8sRUFBQyxXQUFXO0lBQUMsSUFBSSxFQUFDLE1BQU07SUFBQyxNQUFNLEVBQUMsY0FBYztJQUFDLFdBQVcsRUFBQyxHQUFHO0lBQUMsYUFBYSxFQUFDLE9BQU87SUFBQyxjQUFjLEVBQUM7RUFBTyxnQkFBQztJQUFRLEVBQUUsRUFBQyxJQUFJO0lBQUMsRUFBRSxFQUFDLElBQUk7SUFBQyxDQUFDLEVBQUM7RUFBSSxDQUFTLENBQUM7SUFBVSxNQUFNLEVBQUM7RUFBa0IsQ0FBVyxDQUFNLENBQUM7QUFBQTtBQUN2UyxJQUFNLFdBQVcsR0FBRyxTQUFkLFdBQVc7RUFBQSxJQUFNLFNBQVMsUUFBVCxTQUFTO0VBQUEsb0JBQU87SUFBSyxLQUFLLEVBQUMsNEJBQTRCO0lBQUMsS0FBSyxFQUFDLElBQUk7SUFBQyxNQUFNLEVBQUMsSUFBSTtJQUFDLE9BQU8sRUFBQyxXQUFXO0lBQUMsSUFBSSxFQUFDLE1BQU07SUFBQyxNQUFNLEVBQUMsY0FBYztJQUFDLFdBQVcsRUFBQyxHQUFHO0lBQUMsYUFBYSxFQUFDLE9BQU87SUFBQyxjQUFjLEVBQUMsT0FBTztJQUFDLFNBQVMsRUFBRTtFQUFVLGdCQUFDO0lBQU0sQ0FBQyxFQUFDO0VBQVksQ0FBTyxDQUFDO0lBQU0sQ0FBQyxFQUFDO0VBQTZCLENBQU8sQ0FBQztJQUFNLENBQUMsRUFBQztFQUFZLENBQU8sQ0FBQztJQUFNLENBQUMsRUFBQztFQUE4QixDQUFPLENBQU0sQ0FBQztBQUFBO0FBQ3hZLElBQU0sVUFBVSxHQUFHLFNBQWIsVUFBVTtFQUFBLG9CQUFTO0lBQUssS0FBSyxFQUFDLDRCQUE0QjtJQUFDLEtBQUssRUFBQyxJQUFJO0lBQUMsTUFBTSxFQUFDLElBQUk7SUFBQyxPQUFPLEVBQUMsV0FBVztJQUFDLElBQUksRUFBQyxNQUFNO0lBQUMsTUFBTSxFQUFDLGNBQWM7SUFBQyxXQUFXLEVBQUMsR0FBRztJQUFDLGFBQWEsRUFBQyxPQUFPO0lBQUMsY0FBYyxFQUFDO0VBQU8sZ0JBQUM7SUFBUSxFQUFFLEVBQUMsSUFBSTtJQUFDLEVBQUUsRUFBQyxJQUFJO0lBQUMsQ0FBQyxFQUFDO0VBQUcsQ0FBUyxDQUFDO0lBQU0sRUFBRSxFQUFDLElBQUk7SUFBQyxFQUFFLEVBQUMsSUFBSTtJQUFDLEVBQUUsRUFBQyxPQUFPO0lBQUMsRUFBRSxFQUFDO0VBQU8sQ0FBTyxDQUFNLENBQUM7QUFBQTtBQUMzUyxJQUFNLFVBQVUsR0FBRyxTQUFiLFVBQVU7RUFBQSxvQkFBUztJQUFLLEtBQUssRUFBQyw0QkFBNEI7SUFBQyxLQUFLLEVBQUMsSUFBSTtJQUFDLE1BQU0sRUFBQyxJQUFJO0lBQUMsT0FBTyxFQUFDLFdBQVc7SUFBQyxJQUFJLEVBQUMsTUFBTTtJQUFDLE1BQU0sRUFBQyxjQUFjO0lBQUMsV0FBVyxFQUFDLEdBQUc7SUFBQyxhQUFhLEVBQUMsT0FBTztJQUFDLGNBQWMsRUFBQztFQUFPLGdCQUFDO0lBQU0sQ0FBQyxFQUFDO0VBQWdELENBQU8sQ0FBQztJQUFRLEVBQUUsRUFBQyxJQUFJO0lBQUMsRUFBRSxFQUFDLElBQUk7SUFBQyxDQUFDLEVBQUM7RUFBRyxDQUFTLENBQU0sQ0FBQztBQUFBO0FBQ3hULElBQU0sU0FBUyxHQUFHLFNBQVosU0FBUztFQUFBLG9CQUFTO0lBQUssS0FBSyxFQUFDLDRCQUE0QjtJQUFDLEtBQUssRUFBQyxJQUFJO0lBQUMsTUFBTSxFQUFDLElBQUk7SUFBQyxPQUFPLEVBQUMsV0FBVztJQUFDLElBQUksRUFBQyxNQUFNO0lBQUMsTUFBTSxFQUFDLGNBQWM7SUFBQyxXQUFXLEVBQUMsR0FBRztJQUFDLGFBQWEsRUFBQyxPQUFPO0lBQUMsY0FBYyxFQUFDO0VBQU8sZ0JBQUM7SUFBTSxDQUFDLEVBQUM7RUFBMkUsQ0FBTyxDQUFDO0lBQU0sRUFBRSxFQUFDLElBQUk7SUFBQyxFQUFFLEVBQUMsR0FBRztJQUFDLEVBQUUsRUFBQyxJQUFJO0lBQUMsRUFBRSxFQUFDO0VBQUksQ0FBTyxDQUFDO0lBQU0sRUFBRSxFQUFDLElBQUk7SUFBQyxFQUFFLEVBQUMsSUFBSTtJQUFDLEVBQUUsRUFBQyxPQUFPO0lBQUMsRUFBRSxFQUFDO0VBQUksQ0FBTyxDQUFNLENBQUM7QUFBQTtBQUN2WSxJQUFNLFFBQVEsR0FBRyxTQUFYLFFBQVE7RUFBQSxvQkFBUztJQUFLLEtBQUssRUFBQyw0QkFBNEI7SUFBQyxLQUFLLEVBQUMsSUFBSTtJQUFDLE1BQU0sRUFBQyxJQUFJO0lBQUMsT0FBTyxFQUFDLFdBQVc7SUFBQyxJQUFJLEVBQUMsTUFBTTtJQUFDLE1BQU0sRUFBQyxjQUFjO0lBQUMsV0FBVyxFQUFDLEdBQUc7SUFBQyxhQUFhLEVBQUMsT0FBTztJQUFDLGNBQWMsRUFBQztFQUFPLGdCQUFDO0lBQVEsRUFBRSxFQUFDLElBQUk7SUFBQyxFQUFFLEVBQUMsSUFBSTtJQUFDLENBQUMsRUFBQztFQUFJLENBQVMsQ0FBQztJQUFNLEVBQUUsRUFBQyxJQUFJO0lBQUMsRUFBRSxFQUFDLElBQUk7SUFBQyxFQUFFLEVBQUMsSUFBSTtJQUFDLEVBQUUsRUFBQztFQUFJLENBQU8sQ0FBQztJQUFNLEVBQUUsRUFBQyxJQUFJO0lBQUMsRUFBRSxFQUFDLEdBQUc7SUFBQyxFQUFFLEVBQUMsT0FBTztJQUFDLEVBQUUsRUFBQztFQUFHLENBQU8sQ0FBTSxDQUFDO0FBQUE7QUFFbFYsSUFBTSxPQUFPLEdBQUcsOENBQThDO0FBRTlELFNBQVMsR0FBRyxHQUFHO0VBQ1gsZ0JBQTBCLFFBQVEsQ0FBQyxFQUFFLENBQUM7SUFBQTtJQUEvQixLQUFLO0lBQUUsUUFBUTtFQUN0QixpQkFBOEIsUUFBUSxDQUFDLElBQUksQ0FBQztJQUFBO0lBQXJDLE9BQU87SUFBRSxVQUFVO0VBQzFCLGlCQUEwQixRQUFRLENBQUMsSUFBSSxDQUFDO0lBQUE7SUFBakMsS0FBSztJQUFFLFFBQVE7RUFDdEIsaUJBQXNDLFFBQVEsQ0FBQyxJQUFJLENBQUM7SUFBQTtJQUE3QyxXQUFXO0lBQUUsY0FBYztFQUVsQyxpQkFBb0MsUUFBUSxDQUFDLEVBQUUsQ0FBQztJQUFBO0lBQXpDLFVBQVU7SUFBRSxhQUFhO0VBQ2hDLGlCQUE0QixRQUFRLENBQUMsVUFBVSxDQUFDO0lBQUE7SUFBekMsTUFBTTtJQUFFLFNBQVM7RUFFeEIsSUFBTSxjQUFjO0lBQUEsc0VBQUc7TUFBQTtNQUFBO1FBQUE7VUFBQTtZQUNuQixVQUFVLENBQUMsSUFBSSxDQUFDO1lBQ2hCLFFBQVEsQ0FBQyxJQUFJLENBQUM7WUFBQztZQUFBO1lBQUE7WUFBQSxPQU9VLEtBQUssaUNBQTBCLGtCQUFrQixDQUFDLE9BQU8sQ0FBQyxDQUFFLENBQUM7VUFBQTtZQUE5RSxRQUFRO1lBQUEsSUFDSCxRQUFRLENBQUMsRUFBRTtjQUFBO2NBQUE7WUFBQTtZQUFBLE1BQVEsSUFBSSxLQUFLLENBQUMsd0JBQXdCLENBQUM7VUFBQTtZQUFBO1lBQUEsT0FDOUMsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFDO1VBQUE7WUFBNUIsSUFBSTtZQUFBO1lBQUE7VUFBQTtZQUFBO1lBQUE7WUFFSixPQUFPLENBQUMsR0FBRyxDQUFDLDBDQUEwQyxDQUFDO1lBQUM7WUFBQSxPQUN2QyxLQUFLLDhDQUF1QyxrQkFBa0IsQ0FBQyxPQUFPLENBQUMsQ0FBRSxDQUFDO1VBQUE7WUFBM0YsUUFBUTtZQUFBLElBQ0gsUUFBUSxDQUFDLEVBQUU7Y0FBQTtjQUFBO1lBQUE7WUFBQSxNQUFRLElBQUksS0FBSyxDQUFDLDhCQUE4QixDQUFDO1VBQUE7WUFBQTtZQUFBLE9BQ3BELFFBQVEsQ0FBQyxJQUFJLENBQUMsQ0FBQztVQUFBO1lBQTVCLElBQUk7VUFBQTtZQUdKLFFBQVEsR0FBRyxFQUFFO1lBRWpCLElBQUksSUFBSSxDQUFDLEtBQUssRUFBRTtjQUNaLElBQUksQ0FBQyxLQUFLLENBQUMsT0FBTyxDQUFDLGNBQUksRUFBSTtnQkFDdkIsSUFBSSxDQUFDLEtBQUssQ0FBQyxPQUFPLENBQUMsY0FBSSxFQUFJO2tCQUN2QixRQUFRLENBQUMsSUFBSSxDQUFDO29CQUNWLEVBQUUsRUFBRSxJQUFJLENBQUMsRUFBRTtvQkFDWCxJQUFJLEVBQUUsSUFBSSxDQUFDLElBQUk7b0JBQ2YsTUFBTSxFQUFFLElBQUksQ0FBQyxPQUFPO29CQUNwQixRQUFRLEVBQUUsSUFBSSxDQUFDLFNBQVM7b0JBQ3hCLElBQUksRUFBRSxJQUFJLENBQUMsSUFBSTtvQkFDZixVQUFVLEVBQUUsSUFBSSxDQUFDO2tCQUNyQixDQUFDLENBQUM7Z0JBQ04sQ0FBQyxDQUFDO2NBQ04sQ0FBQyxDQUFDO1lBQ047WUFFQSxJQUFJLElBQUksQ0FBQyxLQUFLLEVBQUU7Y0FDWixJQUFJLENBQUMsS0FBSyxDQUFDLE9BQU8sQ0FBQyxjQUFJLEVBQUk7Z0JBQ3ZCLFFBQVEsQ0FBQyxJQUFJLENBQUM7a0JBQ1YsRUFBRSxFQUFFLElBQUksQ0FBQyxFQUFFO2tCQUNYLElBQUksRUFBRSxJQUFJLENBQUMsSUFBSTtrQkFDZixNQUFNLEVBQUUsSUFBSSxDQUFDLE9BQU87a0JBQ3BCLFFBQVEsRUFBRSxJQUFJLENBQUMsU0FBUztrQkFDeEIsSUFBSSxFQUFFLFdBQVc7a0JBQ2pCLFVBQVUsRUFBRSxJQUFJLENBQUM7Z0JBQ3JCLENBQUMsQ0FBQztjQUNOLENBQUMsQ0FBQztZQUNOO1lBRUEsUUFBUSxDQUFDLFFBQVEsQ0FBQztZQUNsQixjQUFjLENBQUMsSUFBSSxJQUFJLENBQUMsQ0FBQyxDQUFDO1lBQzFCLFFBQVEsQ0FBQyxJQUFJLENBQUM7WUFBQztZQUFBO1VBQUE7WUFBQTtZQUFBO1lBRWYsT0FBTyxDQUFDLEtBQUssQ0FBQyxhQUFhLEtBQUssQ0FBQztZQUNqQyxRQUFRLENBQUMsa0VBQWtFLENBQUM7WUFDNUUsWUFBWSxDQUFDLENBQUM7VUFBQztZQUFBO1lBRWYsVUFBVSxDQUFDLEtBQUssQ0FBQztZQUFDO1VBQUE7WUFBQTtRQUFBO01BQUE7SUFBQSxDQUV6QjtJQUFBLFNBM0RLLGNBQWM7TUFBQTtJQUFBO0lBQUEsT0FBZCxjQUFjO0VBQUEsR0EyRG5CO0VBRUQsSUFBTSxZQUFZLEdBQUcsU0FBZixZQUFZLEdBQVM7SUFDdkIsSUFBTSxTQUFTLEdBQUcsQ0FDZDtNQUFFLEVBQUUsRUFBRSxDQUFDO01BQUUsSUFBSSxFQUFFLHVCQUF1QjtNQUFFLE1BQU0sRUFBRSxJQUFJO01BQUUsUUFBUSxFQUFFLEVBQUU7TUFBRSxJQUFJLEVBQUU7SUFBUyxDQUFDLEVBQ3BGO01BQUUsRUFBRSxFQUFFLENBQUM7TUFBRSxJQUFJLEVBQUUsdUJBQXVCO01BQUUsTUFBTSxFQUFFLElBQUk7TUFBRSxRQUFRLEVBQUUsRUFBRTtNQUFFLElBQUksRUFBRTtJQUFTLENBQUMsRUFDcEY7TUFBRSxFQUFFLEVBQUUsQ0FBQztNQUFFLElBQUksRUFBRSxhQUFhO01BQUUsTUFBTSxFQUFFLElBQUk7TUFBRSxRQUFRLEVBQUUsRUFBRTtNQUFFLElBQUksRUFBRTtJQUFhLENBQUMsRUFDOUU7TUFBRSxFQUFFLEVBQUUsQ0FBQztNQUFFLElBQUksRUFBRSwwQkFBMEI7TUFBRSxNQUFNLEVBQUUsSUFBSTtNQUFFLFFBQVEsRUFBRSxFQUFFO01BQUUsSUFBSSxFQUFFO0lBQWEsQ0FBQyxFQUMzRjtNQUFFLEVBQUUsRUFBRSxDQUFDO01BQUUsSUFBSSxFQUFFLFFBQVE7TUFBRSxNQUFNLEVBQUUsSUFBSTtNQUFFLFFBQVEsRUFBRSxFQUFFO01BQUUsSUFBSSxFQUFFO0lBQTBCLENBQUMsRUFDdEY7TUFBRSxFQUFFLEVBQUUsQ0FBQztNQUFFLElBQUksRUFBRSxtQkFBbUI7TUFBRSxNQUFNLEVBQUUsSUFBSTtNQUFFLFFBQVEsRUFBRSxFQUFFO01BQUUsSUFBSSxFQUFFO0lBQVUsQ0FBQyxFQUNqRjtNQUFFLEVBQUUsRUFBRSxDQUFDO01BQUUsSUFBSSxFQUFFLFVBQVU7TUFBRSxNQUFNLEVBQUUsSUFBSTtNQUFFLFFBQVEsRUFBRSxFQUFFO01BQUUsSUFBSSxFQUFFO0lBQVcsQ0FBQyxFQUN6RTtNQUFFLEVBQUUsRUFBRSxDQUFDO01BQUUsSUFBSSxFQUFFLGdCQUFnQjtNQUFFLE1BQU0sRUFBRSxJQUFJO01BQUUsUUFBUSxFQUFFLEVBQUU7TUFBRSxJQUFJLEVBQUU7SUFBVyxDQUFDLEVBQy9FO01BQUUsRUFBRSxFQUFFLENBQUM7TUFBRSxJQUFJLEVBQUUsb0JBQW9CO01BQUUsTUFBTSxFQUFFLElBQUk7TUFBRSxRQUFRLEVBQUUsQ0FBQztNQUFFLElBQUksRUFBRTtJQUFjLENBQUMsRUFDckY7TUFBRSxFQUFFLEVBQUUsRUFBRTtNQUFFLElBQUksRUFBRSx3QkFBd0I7TUFBRSxNQUFNLEVBQUUsS0FBSztNQUFFLFFBQVEsRUFBRSxDQUFDO01BQUUsSUFBSSxFQUFFO0lBQWEsQ0FBQyxDQUM3RjtJQUNELFFBQVEsQ0FBQyxTQUFTLENBQUM7SUFDbkIsY0FBYyxDQUFDLElBQUksSUFBSSxDQUFDLENBQUMsQ0FBQztFQUM5QixDQUFDO0VBRUQsU0FBUyxDQUFDLFlBQU07SUFDWixjQUFjLENBQUMsQ0FBQztJQUNoQjtJQUNBLElBQU0sUUFBUSxHQUFHLFdBQVcsQ0FBQyxjQUFjLEVBQUUsQ0FBQyxHQUFHLEVBQUUsR0FBRyxJQUFJLENBQUM7SUFDM0QsT0FBTztNQUFBLE9BQU0sYUFBYSxDQUFDLFFBQVEsQ0FBQztJQUFBO0VBQ3hDLENBQUMsRUFBRSxFQUFFLENBQUM7RUFFTixJQUFNLHNCQUFzQixHQUFHLE9BQU8sQ0FBQyxZQUFNO0lBQ3pDLElBQUksTUFBTSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQUMsY0FBSTtNQUFBLE9BQzFCLElBQUksQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUMsQ0FBQyxRQUFRLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxDQUFDLENBQUMsSUFDMUQsSUFBSSxDQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsQ0FBQyxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsV0FBVyxDQUFDLENBQUMsQ0FBQztJQUFBLENBQzlELENBQUM7SUFFRCxNQUFNLENBQUMsSUFBSSxDQUFDLFVBQUMsQ0FBQyxFQUFFLENBQUMsRUFBSztNQUNsQixJQUFJLENBQUMsQ0FBQyxNQUFNLEtBQUssQ0FBQyxDQUFDLE1BQU0sRUFBRSxPQUFPLENBQUMsQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFDLEdBQUcsQ0FBQztNQUVuRCxRQUFRLE1BQU07UUFDVixLQUFLLFVBQVU7VUFBRSxPQUFPLENBQUMsQ0FBQyxRQUFRLEdBQUcsQ0FBQyxDQUFDLFFBQVE7UUFDL0MsS0FBSyxXQUFXO1VBQUUsT0FBTyxDQUFDLENBQUMsUUFBUSxHQUFHLENBQUMsQ0FBQyxRQUFRO1FBQ2hELEtBQUssTUFBTTtVQUFFLE9BQU8sQ0FBQyxDQUFDLElBQUksQ0FBQyxhQUFhLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQztRQUNoRDtVQUFTLE9BQU8sQ0FBQztNQUNyQjtJQUNKLENBQUMsQ0FBQztJQUNGLE9BQU8sTUFBTTtFQUNqQixDQUFDLEVBQUUsQ0FBQyxLQUFLLEVBQUUsVUFBVSxFQUFFLE1BQU0sQ0FBQyxDQUFDO0VBRS9CLElBQU0sZ0JBQWdCLEdBQUcsU0FBbkIsZ0JBQWdCLENBQUksTUFBTSxFQUFFLFFBQVEsRUFBSztJQUMzQyxJQUFJLENBQUMsTUFBTSxFQUFFLG9CQUFPO01BQU0sU0FBUyxFQUFDO0lBQW9FLEdBQUMsYUFBaUIsQ0FBQztJQUUzSCxJQUFJLFVBQVUsR0FBRyxjQUFjO0lBQy9CLElBQUksUUFBUSxHQUFHLEVBQUUsRUFBRSxVQUFVLEdBQUcsNkJBQTZCO0lBQzdELElBQUksUUFBUSxHQUFHLEVBQUUsRUFBRSxVQUFVLEdBQUcsWUFBWTtJQUU1QyxvQkFDSTtNQUFNLFNBQVMsc0JBQWUsVUFBVTtJQUErRSxnQkFDbkgsb0JBQUMsU0FBUyxNQUFFLENBQUMsRUFDWixRQUFRLEVBQUMsR0FBQztNQUFNLFNBQVMsRUFBQztJQUFxQixHQUFDLE1BQVUsQ0FDekQsQ0FBQztFQUVmLENBQUM7RUFFRCxvQkFDSTtJQUFLLFNBQVMsRUFBQztFQUE0QixnQkFFdkM7SUFBUSxTQUFTLEVBQUM7RUFBNkYsZ0JBQzNHO0lBQUssU0FBUyxFQUFDO0VBQWdGLGdCQUMzRjtJQUFLLFNBQVMsRUFBQztFQUEwQixnQkFDckM7SUFBSSxTQUFTLEVBQUM7RUFBNEcsZ0JBQ3RIO0lBQU0sU0FBUyxFQUFDO0VBQTBCLEdBQUMsUUFBTyxDQUFDLG1CQUNuRCxDQUNILENBQUMsZUFDTjtJQUNJLE9BQU8sRUFBRSxjQUFlO0lBQ3hCLFFBQVEsRUFBRSxPQUFRO0lBQ2xCLFNBQVMsRUFBQztFQUFtSCxnQkFFN0gsb0JBQUMsV0FBVztJQUFDLFNBQVMsRUFBRSxPQUFPLEdBQUcsY0FBYyxHQUFHO0VBQUcsQ0FBRSxDQUFDLEVBQ3hELE9BQU8sR0FBRyxTQUFTLEdBQUcsUUFDbkIsQ0FDUCxDQUNELENBQUMsZUFHVDtJQUFNLFNBQVMsRUFBQztFQUF3QyxHQUNuRCxLQUFLLGlCQUNGO0lBQUssU0FBUyxFQUFDO0VBQTZHLGdCQUN4SDtJQUFLLFNBQVMsRUFBQztFQUFRLGdCQUFDLG9CQUFDLFFBQVEsTUFBRSxDQUFNLENBQUMsZUFDMUMsK0JBQUksS0FBUyxDQUNaLENBQ1IsZUFHRDtJQUFLLFNBQVMsRUFBQztFQUFvRixnQkFDL0Y7SUFBSyxTQUFTLEVBQUM7RUFBaUIsZ0JBQzVCO0lBQUssU0FBUyxFQUFDO0VBQXFGLGdCQUNoRyxvQkFBQyxVQUFVLE1BQUUsQ0FDWixDQUFDLGVBQ047SUFDSSxJQUFJLEVBQUMsTUFBTTtJQUNYLFdBQVcsRUFBQyw4QkFBOEI7SUFDMUMsS0FBSyxFQUFFLFVBQVc7SUFDbEIsUUFBUSxFQUFFLFNBQVYsUUFBUSxDQUFHLENBQUM7TUFBQSxPQUFLLGFBQWEsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLEtBQUssQ0FBQztJQUFBLENBQUM7SUFDL0MsU0FBUyxFQUFDO0VBQXFILENBQ2xJLENBQ0EsQ0FBQyxlQUVOO0lBQUssU0FBUyxFQUFDO0VBQStDLGdCQUMxRDtJQUNJLE9BQU8sRUFBRSxTQUFULE9BQU87TUFBQSxPQUFRLFNBQVMsQ0FBQyxVQUFVLENBQUM7SUFBQSxDQUFDO0lBQ3JDLFNBQVMseUZBQWtGLE1BQU0sS0FBSyxVQUFVLEdBQUcsMkNBQTJDLEdBQUcsNkNBQTZDO0VBQUcsR0FDcE4sbUJBRU8sQ0FBQyxlQUNUO0lBQ0ksT0FBTyxFQUFFLFNBQVQsT0FBTztNQUFBLE9BQVEsU0FBUyxDQUFDLFdBQVcsQ0FBQztJQUFBLENBQUM7SUFDdEMsU0FBUyx5RkFBa0YsTUFBTSxLQUFLLFdBQVcsR0FBRywyQ0FBMkMsR0FBRyw2Q0FBNkM7RUFBRyxHQUNyTix3QkFFTyxDQUFDLGVBQ1Q7SUFDSSxPQUFPLEVBQUUsU0FBVCxPQUFPO01BQUEsT0FBUSxTQUFTLENBQUMsTUFBTSxDQUFDO0lBQUEsQ0FBQztJQUNqQyxTQUFTLHlGQUFrRixNQUFNLEtBQUssTUFBTSxHQUFHLDJDQUEyQyxHQUFHLDZDQUE2QztFQUFHLEdBQ2hOLFVBRU8sQ0FDUCxDQUNKLENBQUMsZUFFTjtJQUFLLFNBQVMsRUFBQztFQUEwQyxnQkFDckQ7SUFBSSxTQUFTLEVBQUM7RUFBc0MsR0FDL0Msc0JBQXNCLENBQUMsTUFBTSxFQUFDLFVBQy9CLENBQUMsRUFDSixXQUFXLGlCQUNSO0lBQU0sU0FBUyxFQUFDO0VBQXdCLEdBQUMsU0FDOUIsRUFBQyxXQUFXLENBQUMsa0JBQWtCLENBQUMsT0FBTyxDQUFDLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBQyxDQUFDLENBQ3ZELENBRVQsQ0FBQyxFQUVMLE9BQU8sSUFBSSxLQUFLLENBQUMsTUFBTSxLQUFLLENBQUMsZ0JBQzFCO0lBQUssU0FBUyxFQUFDO0VBQXdCLEdBQ2xDLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDLFdBQUM7SUFBQSxvQkFBSTtNQUFLLEdBQUcsRUFBRSxDQUFFO01BQUMsU0FBUyxFQUFDO0lBQWdFLENBQU0sQ0FBQztFQUFBLEVBQ3BILENBQUMsZ0JBRU47SUFBSyxTQUFTLEVBQUM7RUFBc0QsR0FDaEUsc0JBQXNCLENBQUMsR0FBRyxDQUFDLFVBQUMsSUFBSTtJQUFBLG9CQUM3QjtNQUFLLEdBQUcsRUFBRSxJQUFJLENBQUMsRUFBRztNQUFDLFNBQVMsNEdBQXFHLENBQUMsSUFBSSxDQUFDLE1BQU0sR0FBRyxZQUFZLEdBQUcsRUFBRTtJQUFHLGdCQUNoSztNQUFLLFNBQVMsaURBQTBDLENBQUMsSUFBSSxDQUFDLE1BQU0sR0FBRyxhQUFhLEdBQUcsSUFBSSxDQUFDLFFBQVEsSUFBSSxFQUFFLEdBQUcsY0FBYyxHQUFHLElBQUksQ0FBQyxRQUFRLElBQUksRUFBRSxHQUFHLGVBQWUsR0FBRyxZQUFZO0lBQUcsQ0FBTSxDQUFDLGVBRTVMO01BQUssU0FBUyxFQUFDO0lBQU0sZ0JBQ2pCO01BQUssU0FBUyxFQUFDO0lBQTZDLGdCQUN4RDtNQUFJLFNBQVMsRUFBQztJQUFxRCxHQUM5RCxJQUFJLENBQUMsSUFDTixDQUFDLGVBQ0w7TUFBSyxTQUFTLEVBQUM7SUFBVSxHQUNwQixnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsTUFBTSxFQUFFLElBQUksQ0FBQyxRQUFRLENBQzNDLENBQ0osQ0FBQyxlQUVOO01BQUssU0FBUyxFQUFDO0lBQXVELGdCQUNsRSxvQkFBQyxVQUFVLE1BQUUsQ0FBQyxlQUNkLGtDQUFPLElBQUksQ0FBQyxJQUFXLENBQ3RCLENBQ0osQ0FDSixDQUFDO0VBQUEsQ0FDVCxDQUFDLEVBRUQsc0JBQXNCLENBQUMsTUFBTSxLQUFLLENBQUMsSUFBSSxDQUFDLE9BQU8saUJBQzVDO0lBQUssU0FBUyxFQUFDO0VBQTRGLGdCQUN2RztJQUFLLFNBQVMsRUFBQztFQUFxQyxnQkFBQyxvQkFBQyxTQUFTLE1BQUUsQ0FBTSxDQUFDLGVBQ3hFLCtCQUFHLGtCQUFtQixDQUNyQixDQUVSLENBRVAsQ0FBQyxlQUdQO0lBQVEsU0FBUyxFQUFDO0VBQWlGLEdBQUMsYUFDckY7SUFBRyxJQUFJLEVBQUMsNEJBQTRCO0lBQUMsTUFBTSxFQUFDLFFBQVE7SUFBQyxHQUFHLEVBQUMscUJBQXFCO0lBQUMsU0FBUyxFQUFDO0VBQW1FLEdBQUMsaUJBQWtCLENBQ3RMLENBQ1AsQ0FBQztBQUVkO0FBRUEsSUFBTSxJQUFJLEdBQUcsUUFBUSxDQUFDLFVBQVUsQ0FBQyxRQUFRLENBQUMsY0FBYyxDQUFDLE1BQU0sQ0FBQyxDQUFDO0FBQ2pFLElBQUksQ0FBQyxNQUFNLGNBQUMsb0JBQUMsR0FBRyxNQUFFLENBQUMsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==</script></head>
 <body>
-    <div id="root"></div>
-
-    <script type="text/babel">
-        const { useState, useEffect, useMemo } = React;
-
-        // Icons
-        const ClockIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>;
-        const RefreshIcon = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>;
-        const SearchIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>;
-        const MapPinIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>;
-        const AlertIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>;
-        const InfoIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>;
-
-        const API_URL = 'https://ep-api-proxy.kirotpanda.workers.dev/';
-
-        function App() {
-            const [rides, setRides] = useState([]);
-            const [loading, setLoading] = useState(true);
-            const [error, setError] = useState(null);
-            const [lastUpdated, setLastUpdated] = useState(null);
-            
-            const [searchTerm, setSearchTerm] = useState('');
-            const [sortBy, setSortBy] = useState('wait_asc');
-
-            const fetchWaitTimes = async () => {
-                setLoading(true);
-                setError(null);
-                try {
-                    let response;
-                    let data;
-
-                    // Methode 1: corsproxy.io (meistens am zuverlässigsten)
-                    try {
-                        response = await fetch(`https://corsproxy.io/?${encodeURIComponent(API_URL)}`);
-                        if (!response.ok) throw new Error('Proxy 1 fehlgeschlagen');
-                        data = await response.json();
-                    } catch (e) {
-                        console.log("Proxy 1 gescheitert, probiere Proxy 2...");
-                        // Methode 2: allorigins.win (Raw-Modus)
-                        response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(API_URL)}`);
-                        if (!response.ok) throw new Error('Beide Proxies fehlgeschlagen');
-                        data = await response.json();
-                    }
-                    
-                    let allRides = [];
-                    
-                    // Daten strukturieren
-                    if (data.lands) {
-                        data.lands.forEach(land => {
-                            land.rides.forEach(ride => {
-                                allRides.push({
-                                    id: ride.id,
-                                    name: ride.name,
-                                    isOpen: ride.is_open,
-                                    waitTime: ride.wait_time,
-                                    land: land.name,
-                                    lastUpdate: ride.last_updated
-                                });
-                            });
-                        });
-                    }
-                    
-                    if (data.rides) {
-                        data.rides.forEach(ride => {
-                            allRides.push({
-                                id: ride.id,
-                                name: ride.name,
-                                isOpen: ride.is_open,
-                                waitTime: ride.wait_time,
-                                land: 'Allgemein',
-                                lastUpdate: ride.last_updated
-                            });
-                        });
-                    }
-
-                    setRides(allRides);
-                    setLastUpdated(new Date());
-                    setError(null); // Fehler löschen, falls es vorher einen gab
-                } catch (err) {
-                    console.error("API Fehler:", err);
-                    setError("Verbindung zum Live-Server momentan blockiert. Zeige Demo-Daten.");
-                    loadMockData();
-                } finally {
-                    setLoading(false);
-                }
-            };
-
-            const loadMockData = () => {
-                const mockRides = [
-                    { id: 1, name: "Blue Fire Megacoaster", isOpen: true, waitTime: 45, land: "Island" },
-                    { id: 2, name: "WODAN - Timburcoaster", isOpen: true, waitTime: 60, land: "Island" },
-                    { id: 3, name: "Silver Star", isOpen: true, waitTime: 35, land: "Frankreich" },
-                    { id: 4, name: "Eurosat - CanCan Coaster", isOpen: true, waitTime: 20, land: "Frankreich" },
-                    { id: 5, name: "Arthur", isOpen: true, waitTime: 50, land: "Königreich der Minimoys" },
-                    { id: 6, name: "Schweizer Bobbahn", isOpen: true, waitTime: 15, land: "Schweiz" },
-                    { id: 7, name: "Euro-Mir", isOpen: true, waitTime: 25, land: "Russland" },
-                    { id: 8, name: "Voltron Nevera", isOpen: true, waitTime: 85, land: "Kroatien" },
-                    { id: 9, name: "Piraten in Batavia", isOpen: true, waitTime: 5, land: "Niederlande" },
-                    { id: 10, name: "Tiroler Wildwasserbahn", isOpen: false, waitTime: 0, land: "Österreich" },
-                ];
-                setRides(mockRides);
-                setLastUpdated(new Date());
-            };
-
-            useEffect(() => {
-                fetchWaitTimes();
-                // Alle 3 Minuten aktualisieren (etwas schonender für die Proxies)
-                const interval = setInterval(fetchWaitTimes, 3 * 60 * 1000);
-                return () => clearInterval(interval);
-            }, []);
-
-            const filteredAndSortedRides = useMemo(() => {
-                let result = rides.filter(ride => 
-                    ride.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                    ride.land.toLowerCase().includes(searchTerm.toLowerCase())
-                );
-
-                result.sort((a, b) => {
-                    if (a.isOpen !== b.isOpen) return a.isOpen ? -1 : 1;
-                    
-                    switch (sortBy) {
-                        case 'wait_asc': return a.waitTime - b.waitTime;
-                        case 'wait_desc': return b.waitTime - a.waitTime;
-                        case 'name': return a.name.localeCompare(b.name);
-                        default: return 0;
-                    }
-                });
-                return result;
-            }, [rides, searchTerm, sortBy]);
-
-            const getWaitTimeBadge = (isOpen, waitTime) => {
-                if (!isOpen) return <span className="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span>;
-                
-                let colorClass = 'bg-green-500';
-                if (waitTime > 15) colorClass = 'bg-yellow-500 text-gray-900';
-                if (waitTime > 40) colorClass = 'bg-red-500';
-
-                return (
-                    <span className={`px-3 py-1 ${colorClass} text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1`}>
-                        <ClockIcon />
-                        {waitTime} <span className="text-sm font-medium">Min.</span>
-                    </span>
-                );
-            };
-
-            return (
-                <div className="min-h-screen">
-                    {/* Header */}
-                    <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white p-5 shadow-lg">
-                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-                            <div className="text-center md:text-left">
-                                <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight flex items-center justify-center md:justify-start gap-2">
-                                    <span className="text-yellow-400 text-3xl">★</span> EP Wartezeiten
-                                </h1>
-                            </div>
-                            <button 
-                                onClick={fetchWaitTimes}
-                                disabled={loading}
-                                className="flex items-center gap-2 bg-white/10 active:bg-white/20 px-4 py-2 rounded-lg transition-all border border-white/20"
-                            >
-                                <RefreshIcon className={loading ? 'animate-spin' : ''} />
-                                {loading ? 'Lädt...' : 'Update'}
-                            </button>
-                        </div>
-                    </header>
-
-                    <main className="max-w-6xl mx-auto p-4">
-                        {error && (
-                            <div className="mb-6 p-3 bg-amber-50 border-l-4 border-amber-500 text-amber-800 rounded-r-lg flex items-start gap-3 text-sm">
-                                <div className="mt-0.5"><InfoIcon /></div>
-                                <p>{error}</p>
-                            </div>
-                        )}
-
-                        {/* Controls */}
-                        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex flex-col gap-3">
-                            <div className="relative w-full">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                                    <SearchIcon />
-                                </div>
-                                <input
-                                    type="text"
-                                    placeholder="Suchen (z.B. Silver Star)..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="pl-10 w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-
-                            <div className="flex gap-2 w-full overflow-x-auto pb-2 snap-x">
-                                <button
-                                    onClick={() => setSortBy('wait_asc')}
-                                    className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ${sortBy === 'wait_asc' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200'}`}
-                                >
-                                    ↓ Beste Zeit
-                                </button>
-                                <button
-                                    onClick={() => setSortBy('wait_desc')}
-                                    className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ${sortBy === 'wait_desc' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200'}`}
-                                >
-                                    ↑ Längste Zeit
-                                </button>
-                                <button
-                                    onClick={() => setSortBy('name')}
-                                    className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ${sortBy === 'name' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200'}`}
-                                >
-                                    A-Z Name
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="flex justify-between items-end mb-4 px-1">
-                            <h2 className="text-sm font-semibold text-slate-600">
-                                {filteredAndSortedRides.length} Treffer
-                            </h2>
-                            {lastUpdated && (
-                                <span className="text-xs text-slate-400">
-                                    Stand: {lastUpdated.toLocaleTimeString('de-DE').slice(0,5)}
-                                </span>
-                            )}
-                        </div>
-
-                        {loading && rides.length === 0 ? (
-                            <div className="grid grid-cols-1 gap-3">
-                                {[1, 2, 3, 4].map(i => <div key={i} className="bg-white h-24 rounded-xl animate-pulse border border-slate-100"></div>)}
-                            </div>
-                        ) : (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                                {filteredAndSortedRides.map((ride) => (
-                                    <div key={ride.id} className={`relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between ${!ride.isOpen ? 'opacity-70' : ''}`}>
-                                        <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${!ride.isOpen ? 'bg-gray-400' : ride.waitTime <= 15 ? 'bg-green-500' : ride.waitTime <= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}></div>
-                                        
-                                        <div className="pl-2">
-                                            <div className="flex justify-between items-start gap-2 mb-2">
-                                                <h3 className="font-bold text-slate-800 text-lg leading-tight pr-2">
-                                                    {ride.name}
-                                                </h3>
-                                                <div className="shrink-0">
-                                                    {getWaitTimeBadge(ride.isOpen, ride.waitTime)}
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="flex items-center gap-1.5 text-sm text-slate-500 mt-3">
-                                                <MapPinIcon />
-                                                <span>{ride.land}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                
-                                {filteredAndSortedRides.length === 0 && !loading && (
-                                    <div className="col-span-full py-10 text-center text-slate-400 bg-white rounded-xl border border-slate-200">
-                                        <div className="flex justify-center mb-2 opacity-30"><AlertIcon /></div>
-                                        <p>Nichts gefunden.</p>
-                                    </div>
-                                )}
-                            </div>
-                        )}
-                    </main>
-                </div>
-            );
-        }
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
-</html>
-
-
-```
+    <div id="root"><div class="min-h-screen flex flex-col"><header class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white p-5 shadow-lg shrink-0"><div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4"><div class="text-center md:text-left"><h1 class="text-2xl md:text-3xl font-extrabold tracking-tight flex items-center justify-center md:justify-start gap-2"><span class="text-yellow-400 text-3xl">★</span> EP Wartezeiten</h1></div><button class="flex items-center gap-2 bg-white/10 active:bg-white/20 px-4 py-2 rounded-lg transition-all border border-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>Update</button></div></header><main class="max-w-6xl mx-auto p-4 flex-grow w-full"><div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex flex-col gap-3"><div class="relative w-full"><div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div><input type="text" placeholder="Suchen (z.B. Silver Star)..." class="pl-10 w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value=""></div><div class="flex gap-2 w-full overflow-x-auto pb-2 snap-x"><button class="snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border bg-blue-100 text-blue-700 border-blue-200">↓ Beste Zeit</button><button class="snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border bg-slate-50 text-slate-600 border-slate-200">↑ Längste Zeit</button><button class="snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border bg-slate-50 text-slate-600 border-slate-200">A-Z Name</button></div></div><div class="flex justify-between items-end mb-4 px-1"><h2 class="text-sm font-semibold text-slate-600">39 Treffer</h2><span class="text-xs text-slate-400">Stand: 09:05</span></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Eurosat Coastiality</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>0 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>France</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Alpine Express 'Enzian'</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Austria</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Josefina’s Magical Imperial Journey</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Austria</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Tirol Log Flume</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Austria</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Jim Button – Journey through Morrowland</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Germany</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Old Mac Donald's Tractor Fun</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Ireland</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Castello dei Medici</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Italy</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Pirates in Batavia</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Netherlands</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Matterhorn-Blitz</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>1 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Switzerland</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Vienna Wave Swing - 'Glückspilz'</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Austria</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">blue fire Megacoaster</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Iceland</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Ba-a-a Express</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Ireland</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Dancing Dingie</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Ireland</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Poppy Towers</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Minimoys Kingdom</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Vindjammer</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Scandinavia</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Kolumbusjolle</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Spain</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Voltron Nevera powered by Rimac</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>10 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Croatia</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Silver Star</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>15 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>France</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Voletarium</h3><div class="shrink-0"><span class="px-3 py-1 bg-green-500 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>15 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Germany</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between "><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-yellow-500"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">WODAN - Timburcoaster</h3><div class="shrink-0"><span class="px-3 py-1 bg-yellow-500 text-gray-900 text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>35 <span class="text-sm font-medium">Min.</span></span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Iceland</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">VirtualLine: Voltron Nevera powered by Rimac</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Croatia</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Arena of Football - Be Part of It!</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>England</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Euro-Tower</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>France</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Eurosat - CanCan Coaster</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>France</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Madame Freudenreich Curiosités</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>France</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">VirtualLine: Voletarium</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Germany</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Atlantis Adventure</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Greece</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Pegasus</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Greece</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">VirtualLine: Water Rollercoaster Poseidon</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Greece</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Water rollercoaster Poseidon</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Greece</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Whale Adventures - Northern Lights</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Iceland</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Volo da Vinci</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Italy</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">GRAND PRIX EDventure</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Luxembourg</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">ARTHUR</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Minimoys Kingdom</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Atlantica SuperSplash</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Portugal</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Euro-Mir</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Russia</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Fjord-Rafting</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Scandinavia</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Snorri Touren</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Scandinavia</span></div></div></div><div class="relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between opacity-70"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gray-400"></div><div class="pl-2"><div class="flex justify-between items-start gap-2 mb-2"><h3 class="font-bold text-slate-800 text-lg leading-tight pr-2">Swiss Bob Run</h3><div class="shrink-0"><span class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span></div></div><div class="flex items-center gap-1.5 text-sm text-slate-500 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Switzerland</span></div></div></div></div></main><footer class="mt-8 py-6 text-center text-slate-500 text-sm border-t border-slate-200 shrink-0">Powered by <a href="https://queue-times.com/de" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Queue-Times.com</a></footer></div></div>
+ 
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+ 
+        // Icons
+        const ClockIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>;
+        const RefreshIcon = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>;
+        const SearchIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>;
+        const MapPinIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>;
+        const AlertIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>;
+        const InfoIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>;
+ 
+        const API_URL = 'https://ep-api-proxy.kirotpanda.workers.dev/';
+ 
+        function App() {
+            const [rides, setRides] = useState([]);
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState(null);
+            const [lastUpdated, setLastUpdated] = useState(null);
+             
+            const [searchTerm, setSearchTerm] = useState('');
+            const [sortBy, setSortBy] = useState('wait_asc');
+ 
+            const fetchWaitTimes = async () => {
+                setLoading(true);
+                setError(null);
+                try {
+                    let response;
+                    let data;
+ 
+                    // Proxy-Fallbacks um CORS zu umgehen
+                    try {
+                        response = await fetch(`https://corsproxy.io/?${encodeURIComponent(API_URL)}`);
+                        if (!response.ok) throw new Error('Proxy 1 fehlgeschlagen');
+                        data = await response.json();
+                    } catch (e) {
+                        console.log("Proxy 1 gescheitert, probiere Proxy 2...");
+                        response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(API_URL)}`);
+                        if (!response.ok) throw new Error('Beide Proxies fehlgeschlagen');
+                        data = await response.json();
+                    }
+                     
+                    let allRides = [];
+                     
+                    if (data.lands) {
+                        data.lands.forEach(land => {
+                            land.rides.forEach(ride => {
+                                allRides.push({
+                                    id: ride.id,
+                                    name: ride.name,
+                                    isOpen: ride.is_open,
+                                    waitTime: ride.wait_time,
+                                    land: land.name,
+                                    lastUpdate: ride.last_updated
+                                });
+                            });
+                        });
+                    }
+                     
+                    if (data.rides) {
+                        data.rides.forEach(ride => {
+                            allRides.push({
+                                id: ride.id,
+                                name: ride.name,
+                                isOpen: ride.is_open,
+                                waitTime: ride.wait_time,
+                                land: 'Allgemein',
+                                lastUpdate: ride.last_updated
+                            });
+                        });
+                    }
+ 
+                    setRides(allRides);
+                    setLastUpdated(new Date());
+                    setError(null);
+                } catch (err) {
+                    console.error("API Fehler:", err);
+                    setError("Verbindung zum Live-Server momentan blockiert. Zeige Demo-Daten.");
+                    loadMockData();
+                } finally {
+                    setLoading(false);
+                }
+            };
+ 
+            const loadMockData = () => {
+                const mockRides = [
+                    { id: 1, name: "Blue Fire Megacoaster", isOpen: true, waitTime: 45, land: "Island" },
+                    { id: 2, name: "WODAN - Timburcoaster", isOpen: true, waitTime: 60, land: "Island" },
+                    { id: 3, name: "Silver Star", isOpen: true, waitTime: 35, land: "Frankreich" },
+                    { id: 4, name: "Eurosat - CanCan Coaster", isOpen: true, waitTime: 20, land: "Frankreich" },
+                    { id: 5, name: "Arthur", isOpen: true, waitTime: 50, land: "Königreich der Minimoys" },
+                    { id: 6, name: "Schweizer Bobbahn", isOpen: true, waitTime: 15, land: "Schweiz" },
+                    { id: 7, name: "Euro-Mir", isOpen: true, waitTime: 25, land: "Russland" },
+                    { id: 8, name: "Voltron Nevera", isOpen: true, waitTime: 85, land: "Kroatien" },
+                    { id: 9, name: "Piraten in Batavia", isOpen: true, waitTime: 5, land: "Niederlande" },
+                    { id: 10, name: "Tiroler Wildwasserbahn", isOpen: false, waitTime: 0, land: "Österreich" },
+                ];
+                setRides(mockRides);
+                setLastUpdated(new Date());
+            };
+ 
+            useEffect(() => {
+                fetchWaitTimes();
+                // Update alle 5 Minuten, wie in den API Docs empfohlen
+                const interval = setInterval(fetchWaitTimes, 5 * 60 * 1000);
+                return () => clearInterval(interval);
+            }, []);
+ 
+            const filteredAndSortedRides = useMemo(() => {
+                let result = rides.filter(ride => 
+                    ride.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    ride.land.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+ 
+                result.sort((a, b) => {
+                    if (a.isOpen !== b.isOpen) return a.isOpen ? -1 : 1;
+                     
+                    switch (sortBy) {
+                        case 'wait_asc': return a.waitTime - b.waitTime;
+                        case 'wait_desc': return b.waitTime - a.waitTime;
+                        case 'name': return a.name.localeCompare(b.name);
+                        default: return 0;
+                    }
+                });
+                return result;
+            }, [rides, searchTerm, sortBy]);
+ 
+            const getWaitTimeBadge = (isOpen, waitTime) => {
+                if (!isOpen) return <span className="px-3 py-1 bg-gray-200 text-gray-600 rounded-full font-bold text-sm">Geschlossen</span>;
+                 
+                let colorClass = 'bg-green-500';
+                if (waitTime > 15) colorClass = 'bg-yellow-500 text-gray-900';
+                if (waitTime > 40) colorClass = 'bg-red-500';
+ 
+                return (
+                    <span className={`px-3 py-1 ${colorClass} text-white rounded-full font-bold text-lg shadow-sm flex items-center gap-1`}>
+                        <ClockIcon />
+                        {waitTime} <span className="text-sm font-medium">Min.</span>
+                    </span>
+                );
+            };
+ 
+            return (
+                <div className="min-h-screen flex flex-col">
+                    {/* Header */}
+                    <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white p-5 shadow-lg shrink-0">
+                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                            <div className="text-center md:text-left">
+                                <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight flex items-center justify-center md:justify-start gap-2">
+                                    <span className="text-yellow-400 text-3xl">★</span> EP Wartezeiten
+                                </h1>
+                            </div>
+                            <button
+                                onClick={fetchWaitTimes}
+                                disabled={loading}
+                                className="flex items-center gap-2 bg-white/10 active:bg-white/20 px-4 py-2 rounded-lg transition-all border border-white/20"
+                            >
+                                <RefreshIcon className={loading ? 'animate-spin' : ''} />
+                                {loading ? 'Lädt...' : 'Update'}
+                            </button>
+                        </div>
+                    </header>
+ 
+                    {/* Main Content (flex-grow fills available space) */}
+                    <main className="max-w-6xl mx-auto p-4 flex-grow w-full">
+                        {error && (
+                            <div className="mb-6 p-3 bg-amber-50 border-l-4 border-amber-500 text-amber-800 rounded-r-lg flex items-start gap-3 text-sm">
+                                <div className="mt-0.5"><InfoIcon /></div>
+                                <p>{error}</p>
+                            </div>
+                        )}
+ 
+                        {/* Controls */}
+                        <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex flex-col gap-3">
+                            <div className="relative w-full">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                    <SearchIcon />
+                                </div>
+                                <input
+                                    type="text"
+                                    placeholder="Suchen (z.B. Silver Star)..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="pl-10 w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                            </div>
+ 
+                            <div className="flex gap-2 w-full overflow-x-auto pb-2 snap-x">
+                                <button
+                                    onClick={() => setSortBy('wait_asc')}
+                                    className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ${sortBy === 'wait_asc' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200'}`}
+                                >
+                                    ↓ Beste Zeit
+                                </button>
+                                <button
+                                    onClick={() => setSortBy('wait_desc')}
+                                    className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ${sortBy === 'wait_desc' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200'}`}
+                                >
+                                    ↑ Längste Zeit
+                                </button>
+                                <button
+                                    onClick={() => setSortBy('name')}
+                                    className={`snap-start whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium border ${sortBy === 'name' ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-slate-50 text-slate-600 border-slate-200'}`}
+                                >
+                                    A-Z Name
+                                </button>
+                            </div>
+                        </div>
+ 
+                        <div className="flex justify-between items-end mb-4 px-1">
+                            <h2 className="text-sm font-semibold text-slate-600">
+                                {filteredAndSortedRides.length} Treffer
+                            </h2>
+                            {lastUpdated && (
+                                <span className="text-xs text-slate-400">
+                                    Stand: {lastUpdated.toLocaleTimeString('de-DE').slice(0,5)}
+                                </span>
+                            )}
+                        </div>
+ 
+                        {loading && rides.length === 0 ? (
+                            <div className="grid grid-cols-1 gap-3">
+                                {[1, 2, 3, 4].map(i => <div key={i} className="bg-white h-24 rounded-xl animate-pulse border border-slate-100"></div>)}
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                {filteredAndSortedRides.map((ride) => (
+                                    <div key={ride.id} className={`relative overflow-hidden rounded-xl border p-4 bg-white shadow-sm flex flex-col justify-between ${!ride.isOpen ? 'opacity-70' : ''}`}>
+                                        <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${!ride.isOpen ? 'bg-gray-400' : ride.waitTime <= 15 ? 'bg-green-500' : ride.waitTime <= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}></div>
+                                         
+                                        <div className="pl-2">
+                                            <div className="flex justify-between items-start gap-2 mb-2">
+                                                <h3 className="font-bold text-slate-800 text-lg leading-tight pr-2">
+                                                    {ride.name}
+                                                </h3>
+                                                <div className="shrink-0">
+                                                    {getWaitTimeBadge(ride.isOpen, ride.waitTime)}
+                                                </div>
+                                            </div>
+                                             
+                                            <div className="flex items-center gap-1.5 text-sm text-slate-500 mt-3">
+                                                <MapPinIcon />
+                                                <span>{ride.land}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                                 
+                                {filteredAndSortedRides.length === 0 && !loading && (
+                                    <div className="col-span-full py-10 text-center text-slate-400 bg-white rounded-xl border border-slate-200">
+                                        <div className="flex justify-center mb-2 opacity-30"><AlertIcon /></div>
+                                        <p>Nichts gefunden.</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </main>
+ 
+                    {/* Attribution Footer (Obligatorisch laut API Docs) */}
+                    <footer className="mt-8 py-6 text-center text-slate-500 text-sm border-t border-slate-200 shrink-0">
+                        Powered by <a href="https://queue-times.com/de" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold transition-colors">Queue-Times.com</a>
+                    </footer>
+                </div>
+            );
+        }
+ 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+ 
+ 
+ 
+ 
+ 
+</body></html>
